@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="img/favicon-croco.jpg">
+<title>Enhancing the Social-Media Experience · Lacoste</title>
+<meta name="description" content="Audit de la présence de Lacoste sur les réseaux sociaux. R5.MDEE.13, IUT de Roubaix.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+<style>
+/* Design System : .claude/skills/slides-design/ds.html, copie locale dans ds.html */
+:root{
+  --encre:#0a0a0a; --fond:#f5f5f5; --carte:#fff; --filet:#e4e4e2;
+  --bleu:#1d9bf0; --vert:#008000; --rouge:#ff0000;
+  --sourdine:rgba(10,10,10,.55); --tenu:rgba(10,10,10,.38);
+  --fs-titre:clamp(1.9rem,3.9vw,3.3rem);
+  --fs-chiffre:clamp(22px,2.34vw,2.1rem);
+  --fs-md:clamp(14px,1.09vw,1.05rem);
+  --fs-sm:clamp(11px,.94vw,.84rem);
+  --sans:"Plus Jakarta Sans",system-ui,sans-serif;
+  --r:20px; --rail:6vh;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);font-size:var(--fs-md);font-weight:400;line-height:1.5;
+  color:var(--encre);background:var(--fond);scroll-snap-type:y mandatory;overflow-x:hidden}
+img{max-width:none}
+
+/* rail de sommaire, repris du deck X */
+.rail{position:fixed;left:0;top:0;bottom:0;width:var(--rail);background:var(--carte);
+  border-right:1px solid var(--filet);display:flex;flex-direction:column;align-items:center;
+  padding:1.4vh 0;gap:.6vh;z-index:50}
+.rail .mark{width:4.9vh;height:auto;margin:.6vh 0 .4vh;flex:0 0 auto;display:block}
+/* liens du rail : petits widgets à bords arrondis, répartis sur toute la hauteur (demande de Sofian, 12/09) */
+.rail .liens{flex:1;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:space-evenly;padding:.8vh 0}
+.rail .liens a{width:3.6vh;height:3.6vh;display:grid;place-items:center;border-radius:1.1vh;background:var(--fond);border:1px solid var(--filet);
+  font-size:var(--fs-sm);font-weight:600;color:var(--sourdine);text-decoration:none;transition:.18s}
+.rail .liens a:hover{background:#e9e9e6;color:var(--encre)}
+.rail .liens a.on{color:#fff;background:var(--encre);border-color:var(--encre)}
+.rail .bar{margin-top:0;width:.8vh;height:9vh;background:var(--filet);border-radius:2px;overflow:hidden}
+.rail .bar i{display:block;width:100%;background:var(--bleu);height:0}
+
+section{height:100vh;height:100svh;scroll-snap-align:start;scroll-snap-stop:always;
+  padding:10vh 2.6vw 6.5vh calc(var(--rail) + 2.6vw);display:flex;flex-direction:column;
+  justify-content:center;border-top:1px solid var(--filet);position:relative;overflow:hidden}
+section:first-of-type{border-top:0}
+section.haut{justify-content:flex-start}
+.wrap{width:100%;max-width:1500px;margin:0 auto}
+.num{position:absolute;bottom:2.6vh;right:2.6vw;font-size:var(--fs-sm);font-weight:600;
+  letter-spacing:.16em;color:var(--tenu);z-index:3}
+h1,h2{font-size:var(--fs-titre);font-weight:600;letter-spacing:-.035em;line-height:1.04;margin:0 0 .5em}
+.sub{color:var(--sourdine);margin:0 0 1.2em;max-width:74ch}
+strong{font-weight:600}
+.gris{color:var(--tenu)}
+.pied{position:absolute;bottom:2.6vh;left:calc(var(--rail) + 2.6vw);right:10vw;font-size:var(--fs-sm);
+  font-weight:300;color:var(--tenu);z-index:3;margin:0}
+.pied .ia{height:1.1em;vertical-align:-.18em;margin:0 .25em 0 .1em}
+
+/* logos sur chaque slide : Lacoste en haut à gauche (tel quel, coins arrondis), IUT en haut à droite, petit */
+.lg-l{position:absolute;top:2.3vh;left:calc(var(--rail) + 2.6vw);height:4.8vh;width:auto;z-index:6;display:block}
+.lg-i{position:absolute;top:2.9vh;right:2.6vw;height:3vh;width:auto;z-index:6;display:block}
+#s1 .lg-i{background:#fff;border-radius:8px;padding:.5vh .8vh;height:4vh}
+/* les 4 réseaux de l'oral : logos en file, le réseau courant en couleur */
+.rs-suite{position:absolute;top:2.5vh;right:calc(2.6vw + 19vh);display:flex;gap:1vh;align-items:center;z-index:6}
+.rs-suite img{width:3.6vh;height:3.6vh;border-radius:8px;display:block;filter:grayscale(1);opacity:.3;background:#fff}
+.rs-suite img.on{filter:none;opacity:1;box-shadow:0 0 0 2px var(--fond),0 0 0 3.5px var(--encre)}
+
+/* chips à bord fin et boutons */
+.chip{display:inline-flex;align-items:center;border-radius:999px;padding:.3em .85em;font-size:var(--fs-sm);
+  font-weight:600;background:var(--carte);color:var(--encre);border:1px solid rgba(10,10,10,.28);white-space:nowrap}
+.chip.on{background:var(--encre);color:#fff;border-color:var(--encre)}
+.chip-vert{background:#006900;color:#fff;border-color:#006900} /* vert du DS assombri (≈ -18 %), demandé par Sofian le 12/09 */
+.chip-blanc{background:none;color:#fff;border-color:rgba(255,255,255,.85)}
+.chips{display:flex;flex-wrap:wrap;gap:.45em}
+.rond{display:inline-grid;place-items:center;width:2.2em;height:2.2em;border-radius:50%;flex:none;
+  border:1.5px solid var(--encre);font-size:var(--fs-md);font-weight:600;line-height:1}
+.rond.plein{background:var(--encre);color:#fff}
+.rond.blanc{background:#fff;color:var(--encre);border-color:#fff}
+.btn{display:inline-flex;align-items:center;gap:.8em;border-radius:999px;padding:.35em .4em .35em 1.2em;
+  font-size:var(--fs-sm);font-weight:700;background:var(--encre);color:#fff;white-space:nowrap}
+.btn .rond{width:1.9em;height:1.9em;background:#fff;color:var(--encre);border-color:#fff;font-size:var(--fs-sm)}
+.btn-line{background:none;color:var(--encre);border:1.5px solid var(--encre);padding:.55em 1.3em;
+  text-transform:uppercase;letter-spacing:.06em}
+
+/* habillages de chiffres */
+.stat-plain b{display:block;font-size:clamp(2.2rem,4.2vw,3.8rem);font-weight:600;letter-spacing:-.03em;line-height:1}
+.stat-plain span{display:block;font-size:var(--fs-sm);font-weight:600;color:var(--sourdine);margin-top:.35em}
+.stat-block,.stat-vert,.stat-bleu{border-radius:var(--r);padding:1.1em 1.3em;color:#fff}
+.stat-block{background:var(--encre)} .stat-vert{background:var(--vert)} .stat-bleu{background:var(--bleu)}
+.stat-block b,.stat-vert b,.stat-bleu b{display:block;font-size:var(--fs-chiffre);font-weight:600;letter-spacing:-.03em;line-height:1}
+.stat-block span,.stat-vert span,.stat-bleu span{display:block;margin-top:.45em;font-size:var(--fs-sm);font-weight:600;color:rgba(255,255,255,.78)}
+
+/* ============ S1 · COUVERTURE ============ */
+#s1{background:var(--encre);color:#fff;border-top:0;padding:0}
+#s1 .fond{position:absolute;inset:0;overflow:hidden}
+#s1 .fond img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
+#s1 .voile{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.40) 0%,rgba(10,10,10,.50) 55%,rgba(10,10,10,.86) 100%)}
+.tw{position:absolute;left:var(--x);top:var(--y);width:var(--l,86%);transform:translate(-50%,-50%);margin:0;z-index:2;text-align:center}
+#s1 h1{font-size:clamp(2.8rem,6.6vw,6rem);font-weight:600;letter-spacing:-.04em;line-height:1.02;margin:0}
+#s1 .sub{position:absolute;left:50%;top:100%;width:min(58ch,72vw);transform:translateX(-50%);margin:2.4vh 0 0;
+  color:#e4e9eb;font-size:var(--fs-md);text-align:center;max-width:none}
+#s1 .mention{font-size:var(--fs-sm);font-weight:600;text-transform:uppercase;letter-spacing:.16em;color:#8ecdf7}
+#s1 .meta{font-size:var(--fs-sm);font-weight:300;color:rgba(255,255,255,.66);letter-spacing:.04em}
+#s1 .num{color:rgba(255,255,255,.55)}
+
+/* ============ S2 · SOMMAIRE : parcours en 4 étapes sur une ligne ============ */
+.som-titre{font-size:clamp(2.6rem,5.6vw,5rem);font-weight:600;letter-spacing:-.045em;line-height:1;margin:1vh 0 0}
+.piste{flex:1;display:flex;align-items:center}
+.piste-in{position:relative;width:100%;display:grid;grid-template-columns:repeat(4,1fr);gap:2.4vw}
+.piste-in .ligne{position:absolute;left:0;right:0;top:calc(13vh + 1vh);height:1px;background:rgba(10,10,10,.25)}
+.etp{display:flex;flex-direction:column;text-decoration:none;color:var(--encre);position:relative}
+.etp .n{height:13vh;display:flex;align-items:flex-end;padding-bottom:1.6vh;font-size:clamp(3.4rem,7.2vw,6.4rem);font-weight:300;
+  letter-spacing:-.05em;line-height:.8;color:rgba(10,10,10,.18);transition:color .2s}
+.etp:hover .n{color:var(--vert)}
+.etp i{display:block;width:2vh;height:2vh;border-radius:50%;background:var(--fond);border:2px solid var(--encre);position:relative;z-index:1}
+.etp b{display:block;margin-top:3vh;font-size:var(--fs-chiffre);font-weight:500;letter-spacing:-.02em;line-height:1.1}
+.etp .d{display:block;margin-top:.5em;font-size:var(--fs-sm);color:var(--sourdine);max-width:24ch}
+.etp .n .p{display:inline-block;margin:0 0 .1em .9em;font-size:var(--fs-sm);font-weight:600;color:var(--tenu);letter-spacing:.04em;line-height:1.2;white-space:nowrap}
+.etp .mini{display:flex;gap:.7vh;margin-top:1em}
+.etp .mini img{width:2.8vh;height:2.8vh;border-radius:6px;display:block}
+/* animation en boucle : la ligne se remplit en vert de gauche à droite, chaque numéro et son rond passent au vert à son tour, puis tout repart */
+.piste-in .ligne-v{position:absolute;left:0;top:calc(13vh + 1vh);height:2px;margin-top:-.5px;background:var(--vert);width:0;animation:som-ligne 8s linear infinite}
+.etp .n,.etp i{animation-duration:8s;animation-iteration-count:infinite;animation-timing-function:ease}
+.etp:nth-of-type(1) .n{animation-name:som-n1} .etp:nth-of-type(1) i{animation-name:som-i1}
+.etp:nth-of-type(2) .n{animation-name:som-n2} .etp:nth-of-type(2) i{animation-name:som-i2}
+.etp:nth-of-type(3) .n{animation-name:som-n3} .etp:nth-of-type(3) i{animation-name:som-i3}
+.etp:nth-of-type(4) .n{animation-name:som-n4} .etp:nth-of-type(4) i{animation-name:som-i4}
+@keyframes som-ligne{0%{width:0;opacity:1}75%{width:calc(75% + 1.8vw)}88%{width:100%;opacity:1}96%{width:100%;opacity:0}100%{width:0;opacity:0}}
+@keyframes som-n1{0%{color:rgba(10,10,10,.18)}3%,90%{color:var(--vert)}97%,100%{color:rgba(10,10,10,.18)}}
+@keyframes som-n2{0%,25%{color:rgba(10,10,10,.18)}28%,90%{color:var(--vert)}97%,100%{color:rgba(10,10,10,.18)}}
+@keyframes som-n3{0%,50%{color:rgba(10,10,10,.18)}53%,90%{color:var(--vert)}97%,100%{color:rgba(10,10,10,.18)}}
+@keyframes som-n4{0%,75%{color:rgba(10,10,10,.18)}78%,90%{color:var(--vert)}97%,100%{color:rgba(10,10,10,.18)}}
+@keyframes som-i1{0%{background:var(--fond);border-color:var(--encre)}3%,90%{background:var(--vert);border-color:var(--vert)}97%,100%{background:var(--fond);border-color:var(--encre)}}
+@keyframes som-i2{0%,25%{background:var(--fond);border-color:var(--encre)}28%,90%{background:var(--vert);border-color:var(--vert)}97%,100%{background:var(--fond);border-color:var(--encre)}}
+@keyframes som-i3{0%,50%{background:var(--fond);border-color:var(--encre)}53%,90%{background:var(--vert);border-color:var(--vert)}97%,100%{background:var(--fond);border-color:var(--encre)}}
+@keyframes som-i4{0%,75%{background:var(--fond);border-color:var(--encre)}78%,90%{background:var(--vert);border-color:var(--vert)}97%,100%{background:var(--fond);border-color:var(--encre)}}
+
+/* ============ S3 · LA MARQUE (réf. « Explore Our Facilities », Velocity Club) ============ */
+.fac-head{display:flex;align-items:center;gap:1em;margin-bottom:2.6vh}
+.fac-head h2{margin:0}
+.fac-head .droite{margin-left:auto}
+/* carrousel : 4 cartes visibles, flèches en bas à gauche (ou ← → au clavier sur cette slide) */
+.fac-row{display:flex;gap:.9vw;height:55vh;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.fac-row::-webkit-scrollbar{display:none}
+.fac{position:relative;border-radius:var(--r);overflow:hidden;background:var(--encre);flex:0 0 calc((100% - 2.7vw) / 4);scroll-snap-align:start}
+.fac.plein{padding:1.1em;color:#fff;display:flex;flex-direction:column}
+.fac.plein::after{display:none}
+.fac.pv{background:var(--vert)} .fac.pn{background:var(--encre)} .fac.pb{background:var(--bleu)}
+.fac.plein .gros{margin-top:auto;font-size:clamp(3rem,5.4vw,4.8rem);font-weight:600;letter-spacing:-.045em;line-height:.95}
+.fac.plein .txt{position:static;margin-top:.6em}
+button.rond{cursor:pointer;font:inherit;font-size:var(--fs-md);font-weight:600;background:none;color:var(--encre);padding:0;transition:opacity .2s}
+button.rond.plein{background:var(--encre);color:#fff}
+button.rond.off{opacity:.3;cursor:default}
+.fac img{width:100%;height:100%;object-fit:cover;display:block}
+.fac::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.7) 100%);pointer-events:none}
+.fac .chip{position:absolute;top:1em;right:1em;z-index:2}
+.fac .txt{position:absolute;left:1.1em;right:1.1em;bottom:1.1em;color:#fff;z-index:2}
+.fac .txt b{display:block;font-size:var(--fs-chiffre);font-weight:500;letter-spacing:-.02em;line-height:1.05}
+.fac .txt span{font-size:var(--fs-sm);color:rgba(255,255,255,.85)}
+.fac-bas{display:flex;justify-content:space-between;align-items:center;margin-top:2vh}
+.fac-bas p{margin:0;font-size:var(--fs-sm);color:var(--sourdine);text-align:right;max-width:46ch}
+
+/* ============ S4 · HISTOIRE, frise en serpent ============ */
+#s4 h2{margin:0}
+.serpent{position:relative;flex:1;margin-top:.5vh}
+.serpent svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.serpent path{fill:none;stroke:var(--vert);stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.serpent path.fin{stroke:rgba(10,10,10,.28);stroke-dasharray:3 7}
+.jal{position:absolute;width:15vh;height:15vh;transform:translate(-50%,-50%);z-index:1}
+.jal .ph{width:100%;height:100%;border-radius:50%;overflow:hidden;border:5px solid var(--fond);box-shadow:0 0 0 2px var(--vert);background:#fff}
+.jal .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.jal .jt{position:absolute;left:50%;transform:translateX(-50%);text-align:center;white-space:nowrap}
+.jal.h .jt{bottom:calc(100% + 1.2vh)}
+.jal.b .jt{top:calc(100% + 1.2vh)}
+.jt b{display:block;font-size:var(--fs-chiffre);font-weight:600;letter-spacing:-.03em;line-height:1}
+.jt span{display:block;font-size:var(--fs-sm);color:var(--sourdine);margin-top:.35em;line-height:1.35}
+
+/* ============ S5 · RAISON D'ÊTRE (réf. hero de BriskPay) ============ */
+#s5 .wrap{flex:1;min-height:0;display:flex;flex-direction:column}
+.bp-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:4vw;align-items:start}
+.bp-label{font-size:var(--fs-sm);font-weight:600;color:var(--sourdine);margin:0 0 .9em}
+.bp-titre{font-size:clamp(2rem,3.9vw,3.4rem);font-weight:600;letter-spacing:-.035em;line-height:1.06;margin:0}
+.bp-texte{font-size:var(--fs-sm);color:var(--sourdine);margin:.4em 0 1.1em;line-height:1.6}
+.bp-banner{margin-top:3.4vh;flex:1;min-height:0;border-radius:var(--r);overflow:hidden;position:relative}
+.bp-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
+.bp-banner::after{content:"";position:absolute;left:0;right:0;bottom:0;height:45%;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.55));pointer-events:none}
+.bp-cap{position:absolute;left:1.4em;bottom:1.1em;margin:0;color:#fff;font-size:var(--fs-md);font-weight:600;z-index:2}
+
+/* ============ S6 · QUI SOMMES-NOUS (réf. « Made for You », BriskPay) ============ */
+.mfy-titre{text-align:center;font-size:clamp(1.9rem,3.5vw,3rem);font-weight:600;letter-spacing:-.035em;line-height:1.08;margin:0 0 6vh}
+.trio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.1vw;height:58vh}
+.trio > div{border-radius:var(--r);overflow:hidden;position:relative;display:flex;flex-direction:column}
+.trio .vis{border-radius:14px;overflow:hidden;flex:1;min-height:0}
+.trio .vis img{width:100%;height:100%;object-fit:cover;display:block}
+.c-noir{background:var(--encre);color:#fff;padding:1.3em}
+.c-noir .avs img{width:3.4em;height:3.4em;border-radius:50%;object-fit:cover;display:block}
+.c-noir .petit{font-size:var(--fs-sm);color:rgba(255,255,255,.62);margin:.8em 0 1em}
+.c-noir hr{border:0;border-top:1px solid rgba(255,255,255,.22);margin:1.1em 0 .9em;width:100%}
+.c-noir b,.c-clair .gros{display:block;font-size:var(--fs-chiffre);font-weight:500;letter-spacing:-.02em;line-height:1.1}
+.c-noir p.d{font-size:var(--fs-sm);color:rgba(255,255,255,.72);margin:.45em 0 0}
+.c-photo > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.c-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.2) 0%,rgba(0,0,0,0) 35%,rgba(0,0,0,.72) 100%);pointer-events:none}
+.c-photo .haut{position:relative;z-index:2;padding:1.3em}
+.c-photo .haut img{height:2.8em;width:auto;display:block}
+/* cartes Romane et Sofian : même structure (photo + nom, image, métier, description), deux fonds clairs différents */
+.c-perso{padding:1.1em}
+.c-vertclair{background:#dbeddb}
+.c-bleuclair{background:#dcecf8}
+.c-perso .qui{display:flex;align-items:center;gap:.7em;font-weight:600;font-size:var(--fs-md)}
+.c-perso .qui img{width:3em;height:3em;border-radius:50%;object-fit:cover;display:block}
+.c-perso .vis{margin-top:1em}
+.c-perso .metier{margin:1em 0 0;font-size:var(--fs-chiffre);font-weight:500;letter-spacing:-.02em;line-height:1.1}
+.c-vertclair .metier{color:#006900} .c-bleuclair .metier{color:var(--bleu)}
+.c-perso p.d{margin:.4em 0 0;font-size:var(--fs-sm);color:var(--sourdine);line-height:1.45}
+.c-photo .bas{position:relative;z-index:2;margin-top:auto;padding:1.3em;color:#fff}
+.c-photo .bas b{display:block;font-size:var(--fs-chiffre);font-weight:500;letter-spacing:-.02em;line-height:1.1}
+.c-photo .bas span{font-size:var(--fs-sm);color:rgba(255,255,255,.82)}
+.c-clair{background:#dcecf8;padding:1.1em}
+.c-clair .panneau-p{background:#eef6fc;border-radius:14px;padding:1em 1.1em}
+.c-clair .qui{display:flex;align-items:center;gap:.6em;font-weight:600}
+.c-clair .qui img{width:2.6em;height:2.6em;border-radius:50%;object-fit:cover}
+.c-clair .panneau-p .petit{font-size:var(--fs-sm);color:var(--sourdine);margin:.7em 0 .2em}
+.c-clair .vis{margin-top:1em}
+.c-clair .titre-bleu{margin:1em 0 0;font-size:var(--fs-chiffre);font-weight:500;color:var(--bleu);letter-spacing:-.02em;line-height:1.1}
+.c-clair p.d{margin:.35em 0 0;font-size:var(--fs-sm);color:var(--sourdine)}
+
+/* ============ S7 · AMBASSADEURS & EMV ============ */
+#s7{padding-bottom:8vh}
+.amb{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:3vw}
+.amb > div{display:flex;flex-direction:column;min-height:0}
+.sous-titre{display:flex;align-items:center;justify-content:space-between;gap:1.4vw;margin:0 0 2vh}
+.outils{display:flex;gap:.8vw;align-items:center;flex:none}
+.outils img{height:4.6vh;width:auto;border-radius:10px;display:block}
+.amb h2{margin:0 0 .35em}
+.amb .sub{font-size:var(--fs-sm);margin:0}
+.video-zone{position:relative;flex:1;min-height:0;display:flex;flex-direction:column}
+.mail-emv{position:absolute;top:5.6vh;left:1.2vw;width:13vw;height:auto;border-radius:12px;border:1px solid var(--filet);background:#fff;
+  box-shadow:0 12px 28px rgba(10,10,10,.3);transform:rotate(-3deg);z-index:4}
+.video-zone.lecture .mail-emv{display:none}
+.video{position:relative;flex:1;min-height:0;border-radius:var(--r);overflow:hidden;background:var(--encre);cursor:pointer}
+.video > video.clip{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.video.lecture > video.clip{object-fit:contain}
+.video.lecture{cursor:default}
+.video::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,0) 30%,rgba(0,0,0,0) 65%,rgba(0,0,0,.55));pointer-events:none}
+.video .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:9vh;height:9vh;border-radius:50%;
+  background:#fff;color:var(--encre);display:grid;place-items:center;z-index:2;transition:transform .2s}
+.video:hover .play{transform:translate(-50%,-50%) scale(1.08)}
+.video .play svg{width:42%;height:42%;margin-left:8%}
+.video .ytm{position:absolute;left:1.1em;top:1em;display:flex;align-items:center;gap:.5em;color:#fff;font-weight:600;font-size:var(--fs-sm);z-index:2}
+.video .ytm img{height:2.6vh;width:auto;display:block}
+.video .vt{position:absolute;left:1.1em;right:1.1em;bottom:1em;color:#fff;font-weight:600;font-size:var(--fs-md);z-index:2}
+.video.lecture .play,.video.lecture .ytm,.video.lecture .vt,.video.lecture::after{display:none}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3}
+.kpis{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:.8vw;margin-top:1.6vh}
+.kpis > div{border-radius:16px;padding:.9em 1em;border:1px solid var(--filet);background:var(--carte)}
+.kpis b{display:block;font-size:var(--fs-chiffre);font-weight:600;letter-spacing:-.03em;line-height:1;white-space:nowrap}
+.kpis span{display:block;margin-top:.4em;font-size:var(--fs-sm);font-weight:600;color:var(--sourdine)}
+.kpis .k-bleu{background:var(--bleu);border-color:var(--bleu);color:#fff}
+.kpis .k-bleu span{color:rgba(255,255,255,.82)}
+.amb > div:last-child{position:relative}
+.mail-w{position:absolute;right:0;bottom:0;width:30%;background:var(--carte);border:1px solid var(--filet);border-radius:16px;padding:.55em .6em .6em;z-index:2}
+.mail-w img{width:100%;height:auto;display:block;border-radius:10px}
+.mail-t{display:block;font-size:var(--fs-sm);font-weight:600;color:var(--sourdine);margin:0 0 .35em .15em;line-height:1.25}
+.dj-zone{position:relative;align-self:flex-start;max-width:100%}
+.dj{aspect-ratio:800/589;height:43vh;max-width:100%;border-radius:var(--r);overflow:hidden;border:1px solid var(--filet)}
+.dj img{width:100%;height:100%;object-fit:cover;display:block}
+.loupe{position:absolute;right:-2.4vw;bottom:-4.4vh;width:18vh;height:18vh;border-radius:50%;overflow:hidden;
+  border:5px solid #fff;box-shadow:0 0 0 2px var(--encre),0 14px 30px rgba(10,10,10,.22);background:#111;z-index:2}
+.loupe img{position:absolute;left:50%;top:50%;width:360%;height:auto;translate:calc(-1 * var(--ox,74%)) calc(-1 * var(--oy,82%));
+  transform-origin:var(--ox,74%) var(--oy,82%)}
+.barres{display:flex;flex-direction:column;gap:.5vw;margin-top:auto}
+.barre{display:flex;align-items:center;justify-content:space-between;border-radius:14px;padding:.55em 1.1em;min-height:3em}
+.barre .l b{display:block;font-size:var(--fs-md);font-weight:600;line-height:1.2}
+.barre .l span{font-size:var(--fs-sm);opacity:.75}
+.barre .v{font-size:var(--fs-chiffre);font-weight:500;letter-spacing:-.03em;line-height:1}
+.b-vert{background:var(--vert);color:#fff}
+.b-encre{background:var(--encre);color:#fff}
+.b-gris{background:#e6e6e3;color:var(--encre)}
+.b-rouge{background:#fff;color:var(--rouge);border:1.5px solid var(--rouge)}
+
+/* ============ S8 · WEIBO (réf. hero « Unique industrial equipment », Blend Bend) ============ */
+.wb{position:relative;flex:1;min-height:0;display:grid;grid-template-columns:31% 1fr;gap:1.6vw}
+.wb-g{display:flex;flex-direction:column;justify-content:space-between;min-height:0}
+.wb-titre{margin:0;font-size:clamp(1.8rem,3.2vw,2.9rem);font-weight:600;letter-spacing:-.01em;line-height:1.14;text-transform:uppercase}
+.wb-titre .bleu{color:var(--bleu)}
+.wb-tags{margin:0 0 .6vh;font-size:var(--fs-md);font-weight:600;color:var(--bleu)}
+.wb-cartes{display:flex;flex-direction:column;gap:1.1vh}
+.wb-c{display:grid;grid-template-columns:auto 1fr;gap:.9em;align-items:center;border-radius:18px;padding:.85em 1em}
+.wb-c .av{width:5.6vh;height:5.6vh;border-radius:50%;object-fit:cover;display:block;border:2px solid #fff}
+.wb-c .ic{width:5.6vh;height:5.6vh;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.18);margin:0}
+.wb-c .ic svg{width:2.6vh;height:2.6vh}
+.wb-c b{display:block;font-size:var(--fs-chiffre);font-weight:600;letter-spacing:-.03em;line-height:1}
+.wb-c div > span{display:block;font-size:var(--fs-sm);margin-top:.3em;line-height:1.3}
+.wb-c .mini{display:flex;gap:1em;margin-top:.5em;font-size:var(--fs-sm);font-weight:600}
+.wb-c .mini i{font-style:normal;display:inline-flex;align-items:center;gap:.35em}
+.wb-c .mini svg{width:1.1em;height:1.1em}
+.wb-blanc{background:var(--carte);border:1px solid var(--filet)} .wb-blanc div > span{color:var(--sourdine)}
+.wb-noir{background:var(--encre);color:#fff} .wb-noir div > span{color:rgba(255,255,255,.72)}
+.wb-vert{background:var(--vert);color:#fff} .wb-vert div > span{color:rgba(255,255,255,.85)}
+.wb-img{position:relative;border-radius:var(--r);overflow:hidden;background:#111;min-height:0}
+.wb-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:0% 50%;display:block}
+.wb-carte .anneau{display:grid;place-items:center}
+.wb-carte .anneau svg{width:55%;height:55%}
+.wb-coin{position:absolute;right:0;bottom:0;background:var(--fond);padding:1.1vw 0 0 1.1vw;border-top-left-radius:28px;z-index:2;width:36%}
+.wb-coin::before{content:"";position:absolute;right:0;bottom:100%;width:28px;height:28px;
+  background:radial-gradient(circle at 0 0,transparent 27.5px,var(--fond) 28px)}
+.wb-coin::after{content:"";position:absolute;right:100%;bottom:0;width:28px;height:28px;
+  background:radial-gradient(circle at 0 0,transparent 27.5px,var(--fond) 28px)}
+.wb-carte{display:flex;align-items:center;gap:1em;background:var(--bleu);color:#fff;border-radius:var(--r);padding:1.1em 1.3em}
+.wb-carte .anneau{width:2.8em;height:2.8em;border-radius:50%;border:2px solid #fff;flex:none}
+.wb-carte b{display:block;font-size:var(--fs-chiffre);font-weight:600;letter-spacing:-.03em;line-height:1}
+.wb-carte span{display:block;margin-top:.4em;font-size:var(--fs-sm);color:rgba(255,255,255,.85)}
+
+/* ============ S9 · KAKAOTALK (réf. « Core Principles », cartes à coin encoché) ============ */
+.kk{display:grid;grid-template-columns:1fr auto;gap:.9vw;align-items:end;flex:1;min-height:0}
+.kk h2{margin:0 0 .1em}
+.kk .gris-l{font-size:clamp(1.3rem,2.2vw,1.9rem);font-weight:500;color:var(--tenu);letter-spacing:-.02em;margin:0}
+.kk-chiffre{display:flex;align-items:baseline;gap:.6em;margin:3.2vh 0 2.6vh}
+.kk-chiffre b{font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:600;letter-spacing:-.03em;line-height:1}
+.kk-chiffre span{font-size:var(--fs-sm);color:var(--sourdine);font-weight:600}
+.encoches{display:grid;grid-template-columns:repeat(3,1fr);gap:.9vw}
+.encoche{position:relative;border-radius:var(--r);padding:.7em .7em 3.4em;color:#fff;display:flex;flex-direction:column}
+.encoche .ph{height:26vh;flex:none;border-radius:14px;overflow:hidden}
+.encoche .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.encoche .ico{width:2.4em;height:2.4em;border-radius:50%;background:#fff;display:grid;place-items:center;margin:.9em .4em 0}
+.encoche .ico svg{width:1.25em;height:1.25em}
+.encoche b{font-size:var(--fs-md);font-weight:600;line-height:1.2;margin:.7em .4em 0}
+.encoche > span{font-size:var(--fs-sm);color:rgba(255,255,255,.82);margin:.3em 3.2em 0 .4em;line-height:1.35}
+.encoche .coin{position:absolute;right:-.45em;bottom:-.45em;width:3.6em;height:3.6em;border-radius:50%;background:var(--fond);display:grid;place-items:center}
+.encoche .coin .rond{width:2.6em;height:2.6em;color:var(--encre);border-color:var(--encre)}
+.e-vert{background:var(--vert)} .e-bleu{background:var(--bleu)} .e-encre{background:var(--encre)}
+.e-vert .ico{color:var(--vert)} .e-bleu .ico{color:var(--bleu)} .e-encre .ico{color:var(--encre)}
+.kk-shot{height:72vh;width:auto;max-width:42vw;object-fit:contain;border-radius:var(--r);display:block;margin:0}
+
+/* ============ S10 · THREADS (réf. « Results & Benefits ») ============ */
+.rbn{display:grid;grid-template-columns:1.1fr 1fr;gap:1.2vw;align-items:stretch;height:62vh}
+.rbn-noir{background:var(--encre);color:#fff;border-radius:var(--r);padding:1.6em;display:grid;grid-template-columns:1fr auto;gap:0;overflow:hidden}
+.rbn-noir h2{color:#fff;font-size:clamp(2rem,3.8vw,3.3rem);margin:0}
+.rbn-noir p{font-size:var(--fs-sm);color:rgba(255,255,255,.65);margin:.6em 0 1.4em;max-width:30ch}
+.rbn-noir .btn{background:#fff;color:var(--encre);align-self:flex-start}
+.rbn-noir .btn .rond{background:var(--encre);color:#fff;border-color:var(--encre)}
+.rbn-noir .gauche{display:flex;flex-direction:column}
+.rbn-noir .gauche .gros{margin-top:8vh;font-size:clamp(2.4rem,4.4vw,4rem);font-weight:600;letter-spacing:-.03em;line-height:1}
+.rbn-noir .gauche .gros small{display:block;font-size:var(--fs-sm);font-weight:500;color:rgba(255,255,255,.6);letter-spacing:0;margin-top:.4em}
+.rbn-shot{display:flex;align-items:flex-start;justify-content:center;padding:0 1.6em}
+.rbn-shot img{height:min(56vh,calc(62vh - 3.4em));width:auto;max-width:100%;border-radius:14px;display:block}
+.rbn-pile{display:flex;flex-direction:column;gap:1.2vw}
+.rbn-pile > div{flex:1;border-radius:var(--r);color:#fff;padding:1.1em 1.4em;position:relative;display:grid;grid-template-columns:auto 1fr;gap:1.4vw;align-items:center}
+.rbn-pile .gi{width:4.2em;height:4.2em;border-radius:50%;background:rgba(255,255,255,.16);display:grid;place-items:center}
+.rbn-pile .gi svg{width:2em;height:2em}
+.rbn-pile b{display:block;font-size:clamp(2rem,3.4vw,3rem);font-weight:600;letter-spacing:-.03em;line-height:1}
+.rbn-pile .lab{display:block;font-size:var(--fs-sm);color:rgba(255,255,255,.85);margin-top:.3em}
+.rbn-pile .jauge{height:.7vh;border-radius:999px;background:rgba(255,255,255,.28);margin-top:.9em;overflow:hidden}
+.rbn-pile .jauge i{display:block;height:100%;background:#fff;border-radius:999px}
+.rbn-pile small{display:block;margin-top:.45em;font-size:var(--fs-sm);font-weight:600;color:rgba(255,255,255,.85)}
+.rbn-pile .fl{position:absolute;top:.8em;right:1em;font-size:var(--fs-chiffre);font-weight:400;line-height:1}
+
+/* ============ S11 · PINTEREST (croquis de Sofian + typographie de Slush) ============ */
+.rn{position:relative;flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:3vh}
+.rn-titre{font-size:clamp(2.6rem,5.6vw,5rem);font-weight:800;text-transform:uppercase;letter-spacing:-.045em;line-height:.92;margin:0 0 .35em}
+.rn-titre em{font-style:normal;color:var(--vert)}
+.rn .sub{font-size:var(--fs-sm);max-width:46ch;margin-bottom:1.4em}
+.rn .ctas{display:flex;gap:.7em}
+.rn-photos{position:absolute;top:-2vh;right:0;width:45vw;height:84vh}
+.rn-photos img{position:absolute;border-radius:var(--r);object-fit:cover;border:5px solid #fff;box-shadow:0 10px 30px rgba(10,10,10,.14)}
+.rn-photos img.a{width:27vw;height:30vh;left:0;top:4vh;transform:rotate(-4deg);object-position:0 0}
+.rn-photos img.b{width:15vw;height:33vh;right:0;top:0;transform:rotate(5deg);z-index:2}
+.rn-photos img.c{width:14vw;height:31vh;left:6vw;top:40vh;transform:rotate(3deg);object-position:50% 35%}
+.rn-photos img.d{width:12vw;height:27vh;left:20.5vw;top:45vh;transform:rotate(-4deg);z-index:3}
+.rn-photos img.e{width:12.5vw;height:30vh;right:0;top:38vh;transform:rotate(4deg);object-position:50% 20%}
+
+/* ============ S12 · BILAN SWOT (inspiré d'un modèle à coins colorés) ============ */
+#s12 h2{text-align:center;margin:0 0 2.4vh}
+.sw{position:relative;width:min(74vw,1200px);margin:0 auto;flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:1.4vw}
+.swc{position:relative;background:var(--carte);border:1px solid var(--filet);border-radius:var(--r);padding:1.4em 1.8em;display:flex;flex-direction:column}
+.swc.bas{justify-content:flex-end}
+.swc ul{list-style:none;margin:0;padding:0;max-width:68%;position:relative;z-index:1}
+.swc li{position:relative;padding-left:1.4em;margin:.75em 0;font-size:clamp(15px,1.34vw,1.3rem);line-height:1.3}
+.swc li::before{content:"";position:absolute;left:0;top:.38em;width:.62em;height:.62em;border-radius:50%;background:var(--c)}
+.swc .vague{position:absolute;width:44%;height:62%;fill:var(--c)}
+.swc .lettre{position:absolute;font-size:clamp(2rem,3.4vw,3rem);font-weight:600;color:#fff;line-height:1;z-index:1}
+.swc .onglet{position:absolute;width:2.2em;height:46%;background:var(--c);color:#fff;display:grid;place-items:center;
+  font-size:var(--fs-sm);font-weight:700;text-transform:uppercase;letter-spacing:.12em;writing-mode:vertical-rl}
+.sw-s{--c:var(--vert)} .sw-w{--c:var(--rouge)} .sw-o{--c:var(--bleu)} .sw-t{--c:var(--encre)}
+.sw-s .vague{right:0;bottom:0;border-bottom-right-radius:var(--r)}
+.sw-w .vague{left:0;bottom:0;transform:scaleX(-1)}
+.sw-o .vague{right:0;top:0;transform:scaleY(-1)}
+.sw-t .vague{left:0;top:0;transform:scale(-1,-1)}
+.sw-s .lettre{right:4.4vh;bottom:3.6vh} .sw-w .lettre{left:4.4vh;bottom:3.6vh}
+.sw-o .lettre{right:4.4vh;top:3.6vh} .sw-t .lettre{left:4.4vh;top:3.6vh}
+.sw-s .onglet,.sw-o .onglet{right:100%;border-radius:10px 0 0 10px;transform:rotate(180deg);border-radius:0 10px 10px 0}
+.sw-w .onglet,.sw-t .onglet{left:100%;border-radius:0 10px 10px 0}
+.sw-s .onglet,.sw-w .onglet{top:1.2em} .sw-o .onglet,.sw-t .onglet{bottom:1.2em}
+.sw-w ul,.sw-t ul{margin-left:auto}
+.sw-centre{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:14vh;height:14vh;border-radius:50%;
+  background:var(--fond);display:grid;place-items:center;text-align:center;z-index:3}
+.sw-centre div{width:84%;height:84%;border-radius:50%;background:var(--carte);border:1.5px solid var(--encre);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.sw-centre b{font-size:clamp(15px,1.5vw,1.35rem);font-weight:600;letter-spacing:-.02em;line-height:1.05}
+.sw-centre span{font-size:var(--fs-sm);color:var(--sourdine);line-height:1.2;margin-top:.3em;max-width:12ch}
+.swot-foot{text-align:center;font-size:var(--fs-sm);color:var(--sourdine);margin:2vh 0 0}
+
+/* ============ S13 · ANNEXE ============ */
+.concl{margin:0;font-size:clamp(3rem,8vw,6rem);letter-spacing:-.05em;position:relative;z-index:2}
+/* conclusion : la photo de l'équipe avec le prof en fond, style clair activé seulement si la photo se charge */
+#s13 .fond,#s13 .voile{position:absolute;inset:0;display:none}
+#s13 .fond{overflow:hidden}
+/* photo dézoomée : l'image nette au centre, les côtés remplis par la même photo floutée et assombrie */
+#s13 .fond{background:var(--encre)}
+#s13 .fond::before{content:"";position:absolute;inset:-40px;background:url("img/conclusion.jpg") center 30%/cover;filter:blur(26px) brightness(.55)}
+#s13 .fond img{position:absolute;left:50%;top:-3%;height:112%;width:auto;max-width:none;transform:translateX(-50%);display:block}
+/* avec la photo, le titre descend en bas pour ne pas couvrir les visages */
+#s13.avec-photo{justify-content:flex-end;padding-bottom:9vh}
+#s13 .voile{background:linear-gradient(180deg,rgba(10,10,10,.30) 0%,rgba(10,10,10,.45) 55%,rgba(10,10,10,.70) 100%);pointer-events:none}
+#s13.avec-photo{background:var(--encre)}
+#s13.avec-photo .fond,#s13.avec-photo .voile{display:block}
+#s13.avec-photo .concl{color:#fff}
+#s13.avec-photo .num{color:rgba(255,255,255,.6)}
+#s13.avec-photo .lg-i{background:#fff;border-radius:8px;padding:.5vh .8vh;height:4vh}
+/* l'annexe occupe toute la hauteur : sources en deux colonnes au niveau texte courant, puces à droite */
+.anx{display:grid;grid-template-columns:3.4fr 1fr;gap:1.2vw;flex:1;min-height:0;margin-top:.5vh}
+.anx h3{margin:0 0 .9em;font-size:var(--fs-md);font-weight:700}
+.anx-c{background:var(--carte);border:1px solid var(--filet);border-radius:var(--r);padding:1.4em 1.6em;display:flex;flex-direction:column;min-height:0}
+/* chaque source dans sa propre carte numérotée : 2 colonnes de 8, lues de haut en bas */
+.apa{list-style:none;margin:0;padding:0;counter-reset:src;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(8,1fr);grid-auto-flow:column;gap:.6vh .8vw;flex:1;min-height:0}
+.apa li{counter-increment:src;position:relative;display:flex;align-items:center;background:#f3f3f1;border:1px solid var(--filet);border-radius:12px;padding:.12em .8em .12em 2.8em;min-height:0;overflow:hidden}
+.apa li::before{content:counter(src,decimal-leading-zero);position:absolute;left:.8em;top:50%;transform:translateY(-50%);font-weight:700;font-size:clamp(13px,.95vw,.95rem);color:var(--vert)}
+.apa .r{font-size:clamp(12px,.86vw,.84rem);font-style:italic;color:var(--sourdine);line-height:1.2;overflow-wrap:anywhere}
+.apa li i{font-style:normal;font-weight:700;font-size:clamp(13.5px,1vw,1rem);color:var(--encre)}
+.apa .dsc{font-style:normal;font-weight:500;color:var(--encre)}
+#s14 .anx-c{padding:1.1em 1.5em}
+#s14 .anx-c h3{margin-bottom:.6em}
+.anx-ia{background:var(--encre);color:#fff;border-radius:var(--r);padding:1.4em 1.5em;display:flex;flex-direction:column;gap:2.6vh}
+.anx-ia h3{color:#fff;margin:0}
+.anx-ia .qui{display:flex;align-items:center;gap:.5em;font-weight:700;font-size:var(--fs-md)}
+.anx-ia .qui img{height:1.3em;width:auto}
+.anx-ia ul{margin:.45em 0 0;padding-left:1.2em}
+.anx-ia li{font-size:var(--fs-md);line-height:1.5;color:rgba(255,255,255,.88);margin:.15em 0}
+.outils-anx{display:flex;flex-direction:column;gap:1.2vh;margin-top:.6em}
+.outils-anx span{display:flex;align-items:center;gap:.7em;font-size:var(--fs-md);color:rgba(255,255,255,.88)}
+.outils-anx img{height:4.2vh;width:auto;border-radius:8px;display:block}
+
+/* notes orateur, touche N */
+.notes{display:none;position:fixed;left:var(--rail);right:0;bottom:0;background:var(--encre);
+  color:#fff;padding:1.6vh 4vw;font-size:var(--fs-sm);line-height:1.55;max-height:34vh;overflow:auto;z-index:40}
+body.notesvues section.ici .notes{display:block}
+
+/* ---------- mode réglage : touche T ---------- */
+body.reglage [data-tw]{outline:1px dashed rgba(29,155,240,.75);outline-offset:1px;cursor:grab}
+body.reglage [data-tw]:hover{outline:1.5px solid var(--bleu)}
+body.reglage [data-tw].vise{outline:2.5px solid var(--bleu)}
+.panneau{display:none;position:fixed;right:16px;top:16px;z-index:90;max-height:78vh;overflow:auto;
+  background:var(--encre);color:#e4e9eb;border:1px solid rgba(255,255,255,.18);border-radius:16px;
+  padding:12px 16px;font-size:12px;font-weight:300;line-height:1.6;width:360px}
+.panneau.gauche{right:auto;left:calc(var(--rail) + 16px)}
+body.reglage .panneau{display:block}
+.panneau b{font-weight:600;color:#fff}
+.panneau .l{display:flex;justify-content:space-between;gap:14px;font-family:ui-monospace,Menlo,monospace;cursor:pointer;padding:1px 4px;border-radius:6px}
+.panneau .l:hover{background:rgba(255,255,255,.08)}
+.panneau .l span:last-child{text-align:right;color:rgba(255,255,255,.62)}
+.panneau .l.vise{color:#7fcbff;background:rgba(29,155,240,.16)}
+.panneau .outils-r{margin:8px 0;padding:8px 0;border-top:1px solid rgba(255,255,255,.18);border-bottom:1px solid rgba(255,255,255,.18);display:flex;flex-direction:column;gap:5px}
+.panneau .outils-r > div{display:flex;align-items:center;flex-wrap:wrap;gap:5px}
+.panneau .outils-r span{min-width:92px;color:rgba(255,255,255,.7)}
+.panneau button{font:inherit;font-size:12px;font-weight:600;background:#232323;color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:2px 9px;cursor:pointer}
+.panneau button:hover{border-color:var(--bleu)}
+.panneau button.on{background:var(--bleu);border-color:var(--bleu)}
+.panneau .aide{margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.62)}
+
+@media print{
+  @page{size:1280px 720px;margin:0}
+  :root{--rail:0px}
+  .notes,.rail,.panneau{display:none!important}
+  html,body{scroll-snap-type:none}
+  section{break-inside:avoid;page-break-after:always}
+  section:last-of-type{page-break-after:auto}
+  [data-tw]{outline:0!important}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .piste-in .ligne-v{animation:none;width:100%}
+  .etp .n{animation:none;color:var(--vert)}
+  .etp i{animation:none;background:var(--vert);border-color:var(--vert)}
+  .mail-emv{transform:rotate(-3deg)}
+}
+</style>
+</head>
+<body>
+
+<nav class="rail" aria-label="Sommaire">
+  <a href="#s1"><img class="mark" src="img/croco.png" alt="Lacoste, aller à la première diapo"></a>
+  <div class="liens">
+  <a href="#s1" class="on">1</a><a href="#s2">2</a><a href="#s3">3</a><a href="#s4">4</a><a href="#s5">5</a><a href="#s6">6</a>
+  <a href="#s7">7</a><a href="#s8">8</a><a href="#s9">9</a><a href="#s10">10</a><a href="#s11">11</a><a href="#s12">12</a><a href="#s13">13</a><a href="#s14">14</a>
+  </div>
+  <div class="bar"><i></i></div>
+</nav>
+<div class="panneau" id="panneau"></div>
+
+<!-- ============ S1 · COUVERTURE (structure du deck X : titre centré en x et en y, signature en bas) ============ -->
+<section id="s1">
+  <div class="fond" data-tw="image de fond"><img src="img/cover-niney-clean.jpg" alt="Campagne Lacoste Play Big avec Pierre Niney" style="object-position:50% 50%"></div>
+  <div class="voile" data-tw="voile" data-op></div>
+  <div class="tw" data-tw="titre" style="--x:50%;--y:50%;--l:84%">
+    <h1>Enhancing the Social‑Media Experience</h1>
+    <p class="sub" data-tw="description">Lacoste : audit et diagnostic de notre présence sur les réseaux sociaux.</p>
+  </div>
+  <p class="mention tw" data-tw="mention" style="--x:50%;--y:92.4%;--l:86%">R5.MDEE.13 · Stratégie social media &amp; e-CRM · M. Igor Perez</p>
+  <p class="meta tw" data-tw="auteurs" style="--x:50%;--y:96.2%;--l:86%">Romane Da‑Silva &amp; Sofian Chtioui · BUT3 MDEE · IUT de Roubaix · 18 septembre 2026</p>
+  <div class="num">1 / 14</div>
+  <div class="notes">Visuel de la campagne Lacoste « Play Big » avec Pierre Niney. À l'oral : se présenter, annoncer le plan en une phrase.</div>
+</section>
+
+<!-- ============ S2 · SOMMAIRE (parcours en 4 étapes sur une ligne, sans pilule) ============ -->
+<section id="s2" class="haut">
+  <h2 class="som-titre" data-tw="titre">Sommaire</h2>
+  <div class="piste">
+    <div class="piste-in" data-tw="parcours">
+      <div class="ligne"></div><div class="ligne-v"></div>
+      <a class="etp" href="#s3" data-tw="étape 1"><span class="n">01<span class="p">Slides 3 à 5</span></span><i></i><b>La marque</b><span class="d">Histoire, dates clés, raison d'être</span></a>
+      <a class="etp" href="#s6" data-tw="étape 2"><span class="n">02<span class="p">Slide 6</span></span><i></i><b>Qui sommes-nous</b><span class="d">Nos deux métiers du digital</span></a>
+      <a class="etp" href="#s7" data-tw="étape 3"><span class="n">03<span class="p">Slides 7 à 11</span></span><i></i><b>L'audit</b><span class="d">Ambassadeurs et EMV, puis quatre réseaux</span>
+        <span class="mini"><img src="img/rs-weibo.png" alt="Weibo"><img src="img/rs-kakao.png" alt="KakaoTalk"><img src="img/rs-threads.png" alt="Threads"><img src="img/rs-pinterest.png" alt="Pinterest"></span></a>
+      <a class="etp" href="#s12" data-tw="étape 4"><span class="n">04<span class="p">Slides 12 à 14</span></span><i></i><b>Bilan</b><span class="d">Forces, faiblesses, opportunités, menaces, conclusion et sources</span></a>
+    </div>
+  </div>
+  <div class="num">2 / 14</div>
+  <div class="notes">Quatre réseaux moins connus retenus pour l'oral (hors Instagram, TikTok, Facebook et X, comme demandé) : Weibo, KakaoTalk, Threads, Pinterest. Les 13 réseaux sont détaillés dans le dossier PDF.</div>
+</section>
+
+<!-- ============ S3 · LA MARQUE (réf. « Explore Our Facilities », Velocity Club) ============ -->
+<section id="s3">
+  <div class="wrap fac-zone">
+    <div class="fac-head">
+      <h2 data-tw="titre">La marque Lacoste</h2>
+      <div class="droite chips" data-tw="pilules"><span class="chip chip-vert">Fashion-sport</span><span class="chip chip-vert">Premium</span><span class="chip chip-vert">Lifestyle</span></div>
+    </div>
+    <div class="fac-row" data-tw="rangée">
+      <div class="fac" data-tw="carte 1"><img src="img/rene-lacoste.webp" alt="René Lacoste au tennis"><span class="chip chip-blanc">Archives</span>
+        <div class="txt"><b>1933</b><span>René Lacoste &amp; André Gillier</span></div></div>
+      <div class="fac" data-tw="carte 2" style="background:#fff"><img src="img/polo-produit.png" alt="Polo Lacoste L.12.12" style="object-position:50% 22%"><span class="chip">Produit iconique</span>
+        <div class="txt"><b>L.12.12</b><span>Le polo en petit piqué</span></div></div>
+      <div class="fac" data-tw="carte 3"><img src="img/store-facade.jpg" alt="Boutique Lacoste" style="object-position:47% 50%"><span class="chip chip-blanc">Réseau</span>
+        <div class="txt"><b>98 pays</b><span>1 100 boutiques, 8 200 employés</span></div></div>
+      <div class="fac" data-tw="carte 4"><img src="img/michel-lacoste.jpg" alt="Michel Lacoste" style="object-position:45% 28%"><span class="chip chip-blanc">Groupe</span>
+        <div class="txt"><b>Maus Frères</b><span>Contrôle cédé en 2012 par Michel Lacoste</span></div></div>
+      <div class="fac" data-tw="carte 5"><img src="img/rene-raquette.jpg" alt="René Lacoste et la raquette en acier" style="object-position:50% 35%"><span class="chip chip-blanc">Innovation</span>
+        <div class="txt"><b>46 titres du Grand Chelem</b><span>remportés avec la raquette en acier Lacoste, 1966-1978</span></div></div>
+      <div class="fac" data-tw="carte 6"><img src="img/popup-shanghai.jpg" alt="Pop-up store Lacoste à Shanghai" style="object-position:50% 40%"><span class="chip chip-blanc">Monde</span>
+        <div class="txt"><b>504 boutiques</b><span>en Asie-Pacifique, 379 en EMEA, 198 aux Amériques</span></div></div>
+      <div class="fac" data-tw="carte 7" style="background:#fff"><img src="img/parfum-1968.jpg" alt="Eau de toilette Lacoste par Jean Patou" style="object-position:50% 30%"><span class="chip">Parfum</span>
+        <div class="txt"><b>1968</b><span>première eau de toilette, lancée avec Jean Patou</span></div></div>
+      <div class="fac" data-tw="carte 8" style="background:#fff"><img src="img/eshop.jpg" alt="Boutique en ligne Lacoste" style="object-position:50% 20%"><span class="chip chip-blanc">Digital</span>
+        <div class="txt"><b>43 e-shops</b><span>boutiques en ligne dans le monde</span></div></div>
+      <div class="fac" data-tw="carte 9" style="background:#fff"><img src="img/rapport-rse.jpg" alt="Rapport de développement durable Lacoste, Vers une élégance durable" style="object-position:48% 50%"><span class="chip">RSE</span>
+        <div class="txt"><b>« Durable Elegance »</b><span>la stratégie RSE : People, Communities, Planet</span></div></div>
+      <div class="fac" data-tw="carte 10"><img src="img/ceo.jpg" alt="Éric Vallat, CEO de Lacoste" style="object-position:50% 25%"><span class="chip on">Direction</span>
+        <div class="txt"><b>Éric Vallat</b><span>CEO depuis 2025 ; Pelagia Kolotouros à la création</span></div></div>
+      <div class="fac" data-tw="carte 11" style="background:#dfe2e4"><img src="img/fondation-video.jpg" alt="Fondation Lacoste" style="object-fit:contain;object-position:50% 28%"><span class="chip on">Engagement</span>
+        <div class="txt"><b>Fondation Lacoste</b><span>créée en 2006, pour l'inclusion sociale et professionnelle</span></div></div>
+    </div>
+    <div class="fac-bas">
+      <div style="display:flex;gap:.5em"><button class="rond fac-prec" type="button" aria-label="Cartes précédentes">←</button><button class="rond plein fac-suiv" type="button" aria-label="Cartes suivantes">→</button></div>
+      <p data-tw="phrase">Un vêtement pensé pour le tennis devenu un produit de mode : le crocodile, symbole de la marque depuis sa création.</p>
+    </div>
+  </div>
+  <p class="pied" data-tw="source">Sources : Lacoste, site officiel ; Autorité de la concurrence, rachat par Maus Frères ; Wikipédia, Lacoste (entreprise), (consultés le 11/09/2026).</p>
+  <div class="num">3 / 14</div>
+  <div class="notes">1923 : René Lacoste surnommé « le Crocodile ». 1933 : naissance du fashion-sport. 1971 : sponsor de Roland-Garros. 2012 : Michel Lacoste, président, et une partie de la famille cèdent le contrôle à Maus Frères (valorisation 1 à 1,25 Md€). CEO : Éric Vallat depuis 2025. 2026 : nouvelle identité visuelle.</div>
+</section>
+
+<!-- ============ S4 · HISTOIRE (frise en serpent avec photos, demandée par Sofian comme pour le deck X) ============ -->
+<section id="s4" class="haut">
+  <h2 data-tw="titre">L'histoire de Lacoste</h2>
+  <div class="serpent" data-tw="frise">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M 0 33 L 86 33 C 99 33 99 76 86 76 L 5 76"/>
+      <path class="fin" d="M 5 76 L 0 76"/>
+    </svg>
+    <div class="jal h" style="left:13%;top:33%" data-tw="1923"><div class="ph"><img src="img/rene-lacoste.webp" alt="René Lacoste" style="object-position:50% 30%"></div>
+      <div class="jt"><b>1923</b><span>René Lacoste devient « le Crocodile »</span></div></div>
+    <div class="jal h" style="left:45%;top:33%" data-tw="1933"><div class="ph"><img src="img/polo-produit.png" alt="Polo L.12.12" style="object-position:50% 40%"></div>
+      <div class="jt"><b>1933</b><span>Le polo L.12.12, créé avec André Gillier</span></div></div>
+    <div class="jal h" style="left:77%;top:33%" data-tw="1971"><div class="ph"><img src="img/moodboard-romane.jpg" alt="Court de Roland-Garros" style="object-position:62% 34%;scale:3.2;transform-origin:62% 34%"></div>
+      <div class="jt"><b>1971</b><span>Partenaire officiel de Roland-Garros</span></div></div>
+    <div class="jal b" style="left:77%;top:76%" data-tw="2012"><div class="ph"><img src="img/michel-lacoste.jpg" alt="Michel Lacoste" style="object-position:45% 30%"></div>
+      <div class="jt"><b>2012</b><span>Maus Frères prend le contrôle du groupe</span></div></div>
+    <div class="jal b" style="left:45%;top:76%" data-tw="2018"><div class="ph"><img src="img/save-our-species.jpg" alt="Polos Save Our Species" style="object-position:50% 50%"></div>
+      <div class="jt"><b>2018</b><span>« Save Our Species » : le crocodile cède sa place</span></div></div>
+    <div class="jal b" style="left:13%;top:76%" data-tw="2026"><div class="ph"><img src="img/cover.jpg" alt="Campagne Life is a Beautiful Sport" style="object-position:50% 35%"></div>
+      <div class="jt"><b>2026</b><span>Nouvelle identité, « Life is a Beautiful Sport »</span></div></div>
+  </div>
+  <p class="pied" data-tw="source">Sources : Lacoste, site officiel, histoire de la marque, (consulté le 11/09/2026) ; photo AFP de Michel Lacoste. Dates recoupées avec <img class="ia" src="img/logo-claude.svg" alt="">Claude.</p>
+  <div class="num">4 / 14</div>
+  <div class="notes">Lire la frise dans le sens du serpent. 1923 : un pari sur une valise en crocodile vaut son surnom à René Lacoste. 1933 : avec André Gillier, il lance le polo en petit piqué, naissance du fashion-sport. 1971 : partenaire de Roland-Garros, le pilier tennis de la marque. 2012 : fin de près de 80 ans de contrôle familial, Maus Frères devient majoritaire. 2018 : opération « Save Our Species », dix espèces menacées remplacent le crocodile sur des polos en édition limitée. 2026 : nouvelle identité visuelle et retour de la signature « Life is a Beautiful Sport ». Autres dates : 1968 première eau de toilette, 2025 Éric Vallat devient CEO.</div>
+</section>
+
+<!-- ============ S5 · RAISON D'ÊTRE (réf. hero de BriskPay) ============ -->
+<section id="s5" class="haut">
+  <div class="wrap">
+    <div class="bp-grid">
+      <div>
+        <p class="bp-label" data-tw="mention">Notre raison d'être</p>
+        <h2 class="bp-titre" data-tw="titre">Faire de l'élégance une valeur <span class="gris">qui transcende les différences</span></h2>
+      </div>
+      <div style="padding-top:2.4em" data-tw="texte et valeurs">
+        <p class="bp-texte">"Elevating elegance to a value that transcends differences." Mission : "Liberate movement and connect all cultures". Vision : devenir la marque fashion-sport la plus inspirante.</p>
+        <div class="chips"><span class="chip on">Play as one team</span><span class="chip">Play with elegance</span><span class="chip">Play by daring</span><span class="chip">Play with tenacity</span></div>
+      </div>
+    </div>
+    <div class="bp-banner" data-tw="bandeau photo"><img src="img/venus-playbig.jpg" alt="Campagne Lacoste Play Big avec Venus Williams" style="object-position:50% 38%"><p class="bp-cap">Campagne « Play Big », Venus Williams</p></div>
+  </div>
+  <p class="pied" data-tw="source">Source : Lacoste, raison d'être, mission et valeurs officielles, (consulté le 11/09/2026).</p>
+  <div class="num">5 / 14</div>
+  <div class="notes">L'élégance vue comme une attitude, au-delà du statut, du genre, de la culture ou de l'origine. RSE "Durable Elegance" en 3 volets : People, Communities, Planet. Les 4 valeurs : respect et coopération, excellence et fair-play, audace, persévérance.</div>
+</section>
+
+<!-- ============ S6 · QUI SOMMES-NOUS (réf. « Made for You », BriskPay) ============ -->
+<section id="s6" class="haut">
+  <div class="wrap">
+    <h2 class="mfy-titre" data-tw="titre">Qui sommes-nous :<br><span class="gris">deux métiers du digital</span></h2>
+    <div class="trio" data-tw="trois cartes">
+      <div class="c-perso c-vertclair" data-tw="carte Romane">
+        <div class="qui"><img src="img/photo-romane.png" alt="Romane Da-Silva">Romane Da-Silva</div>
+        <div class="vis" data-tw="image Romane"><img src="img/moodboard-romane.jpg" alt="Planche de direction artistique Lacoste" style="object-position:50% 48%;transform-origin:50% 48%;scale:1.45"></div>
+        <p class="metier">Directrice Artistique</p>
+        <p class="d">Identité visuelle, moodboards et campagnes : l'image de Lacoste sur chaque réseau.</p>
+      </div>
+      <div class="c-photo" data-tw="carte boutique">
+        <img src="img/store-nuit.jpeg" alt="Vitrine Lacoste" style="object-position:50% 45%;transform-origin:50% 45%;scale:1.15">
+        <div class="haut"><img src="img/logo-lacoste-blanc.png" alt="Lacoste"></div>
+        <div class="bas"><b>Un binôme au service de la marque</b><span>L'image d'un côté, la relation client de l'autre.</span></div>
+      </div>
+      <div class="c-perso c-bleuclair" data-tw="carte Sofian">
+        <div class="qui"><img src="img/photo-sofian.png" alt="Sofian Chtioui">Sofian Chtioui</div>
+        <div class="vis" data-tw="image e-CRM"><img src="img/ecrm-dashboard.png" alt="Tableau de bord de pilotage client" style="object-position:58% 55%;transform-origin:58% 55%;scale:1.3"></div>
+        <p class="metier">Chargé e-CRM</p>
+        <p class="d">Emailings segmentés, newsletters et parcours clients, d'après une vraie offre Cdiscount (LinkedIn, 10/09/2026).</p>
+      </div>
+    </div>
+  </div>
+  <p class="pied" data-tw="source">Sources : Cdiscount, offre « Stage - Chargé de CRM vendeurs », LinkedIn, (consultée le 11/09/2026) ; Lacoste, offre « Assistant Directeur Artistique », (consultée le 11/09/2026).</p>
+  <div class="num">6 / 14</div>
+  <div class="notes">Romane : identité visuelle, univers esthétique, moodboards, campagnes, cohérence graphique d'un réseau à l'autre, veille. Sofian, chargé e-CRM (offre Cdiscount, linkedin.com/jobs/view/4453467232) : anime la base clients par emailings segmentés, notifications in-app et newsletters ; construit les parcours d'onboarding et de fidélisation ; lit les données pour repérer les frictions et limiter le churn.</div>
+</section>
+
+<!-- ============ S7 · AMBASSADEURS & EMV (réf. « Revenue Breakdown », annual report vert et noir) ============ -->
+<section id="s7">
+  <div class="amb">
+    <div>
+      <h2 data-tw="titre">Ce que rapporte un ambassadeur</h2>
+      <div class="sous-titre">
+        <p class="sub" data-tw="description">Taux d'engagement Instagram de chaque ambassadeur, comparé à celui du compte Lacoste.</p>
+        <div class="outils" data-tw="logos outils"><img src="img/logo-kolsquare.png" alt="Kolsquare"><img src="img/logo-i4y.jpg" alt="Influence4You"></div>
+      </div>
+      <div class="video-zone">
+      <div class="video" data-tw="vidéo" data-yt="jIw0LAhy1Bg" role="button" aria-label="Lire la vidéo Pierre Niney &amp; Pierre Gasly for Lacoste &amp; Alpine">
+        <video class="clip" src="img/niney-gasly.mp4" poster="img/yt-niney-gasly.jpg" preload="metadata" playsinline aria-label="Vidéo Pierre Niney et Pierre Gasly pour Lacoste et Alpine"></video>
+        <span class="ytm"><img src="img/rs-youtube.png" alt="">YouTube</span>
+        <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg></span>
+        <span class="vt">Pierre Niney &amp; Pierre Gasly for Lacoste &amp; Alpine</span>
+      </div>
+      </div>
+      <div class="kpis" data-tw="chiffres clés">
+        <div class="k-bleu"><b>82 113 $</b><span>EMV du post</span></div>
+        <div><b>81 000</b><span>likes</span></div>
+        <div><b>430</b><span>commentaires</span></div>
+        <div><b>16 380</b><span>partages</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="dj-zone">
+        <div class="dj" data-tw="post Djokovic"><img src="img/post-djokovic.png" alt="Post Instagram Lacoste avec Novak Djokovic"></div>
+        <div class="loupe" data-tw="loupe"><img src="img/post-djokovic.png" alt="Détail : 79,4 K likes, 688 commentaires, 858 republications" style="object-position:74% 82%"></div>
+      </div>
+      <div class="barres" data-tw="barres">
+        <div class="barre b-vert" style="width:100%"><div class="l"><b>Pierre Niney</b><span>2,6 M followers</span></div><span class="v">6,55 %</span></div>
+        <div class="barre b-encre" style="width:95%"><div class="l"><b>Adèle Exarchopoulos</b><span>2,3 M followers</span></div><span class="v">5,86 %</span></div>
+        <div class="barre b-gris" style="width:66%"><div class="l"><b>Novak Djokovic</b><span>16,7 M followers</span></div><span class="v">2,13 %</span></div>
+        <div class="barre b-gris" style="width:60%"><div class="l"><b>Venus Williams</b><span>2,2 M followers</span></div><span class="v">0,98 %</span></div>
+        <div class="barre b-rouge" style="width:54%"><div class="l"><b>Compte @lacoste</b><span>8,9 M followers</span></div><span class="v">0,19 %</span></div>
+      </div>
+      <div class="mail-w" data-tw="mail Influence4You"><span class="mail-t">Rapport EMV reçu par mail, Influence4You</span><img src="img/emv-donut.png" alt="Rapport EMV : total 82 113 $"></div>
+    </div>
+  </div>
+  <p class="pied" data-tw="source">Sources : Kolsquare et Influence4You, engagement et calculateur EMV, (consulté le 11/09/2026) ; YouTube, chaîne Lacoste, (consulté le 12/09/2026).</p>
+  <div class="num">7 / 14</div>
+  <div class="notes">Les ambassadeurs français ont un taux d'engagement 30 fois supérieur à celui du compte Lacoste. EMV : le post vidéo "Pierre Niney &amp; Pierre Gasly for Lacoste &amp; Alpine" (81 000 likes, 430 commentaires, 16 380 partages) vaut 82 113 $ de visibilité gagnée, calcul fait sur Influence4You. La même vidéo sur YouTube : 4,3 k vues, publiée le 29/06/2026. Loupe : le post Djokovic du 29 juin cumule 79,4 K likes, 688 commentaires et 858 republications. Double tranchant : levier puissant, mais cet engagement appartient d'abord à la célébrité.</div>
+</section>
+
+<!-- ============ S8 · WEIBO (réf. hero « Unique industrial equipment », Blend Bend : titre dans une encoche, image découpée, carte dans le coin) ============ -->
+<section id="s8" data-rs="1">
+  <div class="wb">
+    <div class="wb-g">
+      <h2 class="wb-titre" data-tw="titre"><span class="bleu">Weibo,</span><br>l'écosystème<br>Wang Yibo</h2>
+      <div class="wb-cartes" data-tw="cartes">
+        <p class="wb-tags" data-tw="hashtags">#CROCFIT · #Lacoste生动在场</p>
+        <div class="wb-c wb-blanc" data-tw="carte abonnés"><img class="av" src="img/wb-lacoste.png" alt="Avatar du compte LACOSTE"><div><b>536 K</b><span>abonnés au compte officiel LACOSTE</span></div></div>
+        <div class="wb-c wb-noir" data-tw="carte Wang Yibo"><img class="av" src="img/wb-wang.png" alt="Wang Yibo"><div><b>31 160</b><span>interactions sur un post Wang Yibo, mai 2026</span>
+          <div class="mini"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-7.5-10.2A4.1 4.1 0 0 1 12 7.4a4.1 4.1 0 0 1 7.5 2.4C19.5 15.4 12 20 12 20z"/></svg>9 947</i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M20.5 12a8.5 8.5 0 0 1-12.3 7.6L3.5 20.5l1-4.4A8.5 8.5 0 1 1 20.5 12z"/></svg>4 516</i></div></div></div>
+        <div class="wb-c wb-vert" data-tw="carte vidéo"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div><b>93 M</b><span>vues vidéo cumulées sur le compte</span></div></div>
+      </div>
+    </div>
+    <div class="wb-img" data-tw="capture Weibo"><img src="img/weibo.png" alt="Profil officiel LACOSTE sur Weibo" style="object-position:0% 50%"></div>
+    <div class="wb-coin" data-tw="carte cumul"><div class="wb-carte"><span class="anneau"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l3 3-3 3"/><path d="M4 12v-2a4 4 0 0 1 4-4h12"/><path d="M7 21l-3-3 3-3"/><path d="M20 12v2a4 4 0 0 1-4 4H4"/></svg></span><div><b>19 M</b><span>partages, commentaires et likes cumulés</span></div></div></div>
+  </div>
+  <p class="pied" data-tw="source">Source : Weibo, compte officiel LACOSTE, (consulté le 11/09/2026).</p>
+  <div class="num">8 / 14</div>
+  <div class="notes">Chiffres lus sur le profil : 53,6 万 abonnés (536 000), 1 901,6 万 partages, commentaires et likes cumulés (19 M), 9 348,8 万 vues vidéo (93 M). La veille : 1 publication, plus de 10 000 lectures, 268 interactions. Post Wang Yibo de mai 2026 : 9 947 likes et 4 516 commentaires, 31 160 interactions au total. Hashtags : #CROCFIT, #Lacoste生动在场. Audience : consommateurs chinois, fans de Wang Yibo, communautés pop culture. Réseau non couvert par Influence4You et Kolsquare : recherche manuelle.</div>
+</section>
+
+<!-- ============ S9 · KAKAOTALK (réf. « Core Principles », cartes à coin encoché) ============ -->
+<section id="s9" data-rs="2">
+  <div class="kk">
+    <div>
+      <h2 data-tw="titre">KakaoTalk</h2>
+      <p class="gris-l" data-tw="sous-titre">le canal officiel de Lacoste en Corée</p>
+      <div class="kk-chiffre" data-tw="chiffre"><b>403 K</b><span>amis abonnés au canal</span></div>
+      <div class="encoches" data-tw="cartes">
+        <div class="encoche e-vert" data-tw="carte 1"><div class="ph"><img src="img/kakao-yujin.jpg" alt="Ahn Yujin en polo Lacoste" style="object-position:50% 22%"></div>
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+          <b>Actualités</b><span>Nouvelles collections, messages</span><div class="coin"><span class="rond">↗</span></div></div>
+        <div class="encoche e-bleu" data-tw="carte 2"><div class="ph"><img src="img/kakao-heritage.jpg" alt="Collection Lacoste Olympic Heritage" style="object-position:50% 30%"></div>
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5 5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+          <b>Offres &amp; coupons</b><span>En ligne comme en boutique</span><div class="coin"><span class="rond">↗</span></div></div>
+        <div class="encoche e-encre" data-tw="carte 3"><div class="ph"><img src="img/kakao-playbig.png" alt="Ahn Hyo Seop, campagne Play Big" style="object-position:62% 50%"></div>
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1 13H5L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg></span>
+          <b>Commerce</b><span>Événements, service client</span><div class="coin"><span class="rond">↗</span></div></div>
+      </div>
+    </div>
+    <img class="kk-shot" src="img/kakaotalk-cadre.png" alt="Canal officiel LACOSTE sur KakaoTalk" data-tw="capture KakaoTalk">
+  </div>
+  <p class="pied" data-tw="source">Source : KakaoTalk Channel, canal officiel Lacoste, (consulté le 11/09/2026).</p>
+  <div class="num">9 / 14</div>
+  <div class="notes">Lacoste adapte son écosystème aux usages locaux : Weibo et Douyin en Chine, KakaoTalk en Corée, WeChat pour le CRM chinois. Visuels : Ahn Yujin, la collection Olympic Heritage et Ahn Hyo Seop dans la campagne « Play Big ». Réseau non couvert par les deux extensions : recherche manuelle.</div>
+</section>
+
+<!-- ============ S10 · THREADS (réf. « Results & Benefits », deck économie circulaire) ============ -->
+<section id="s10" data-rs="3">
+  <div class="rbn">
+    <div class="rbn-noir">
+      <div class="gauche">
+        <h2 data-tw="titre">Threads</h2>
+        <p data-tw="phrase">@lacoste, « Elevating fashion and sport since 1933 ». Un compte actif, alors qu'on le croyait marginal.</p>
+        <span class="btn" data-tw="bouton">Présence active <span class="rond">↗</span></span>
+        <div class="gros" data-tw="chiffre">1,4 M<small>followers</small></div>
+      </div>
+      <div class="rbn-shot" data-tw="capture Threads"><img src="img/threads.png" alt="Profil officiel Lacoste sur Threads"></div>
+    </div>
+    <div class="rbn-pile">
+      <div class="e-vert" data-tw="bloc likes"><span class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-7.5-10.2A4.1 4.1 0 0 1 12 7.4a4.1 4.1 0 0 1 7.5 2.4C19.5 15.4 12 20 12 20z"/></svg></span>
+        <div><b>1,5 K</b><span class="lab">likes sur « Here, we speak crocodile »</span><div class="jauge"><i style="width:84%"></i></div><small>84 % des interactions du post</small></div><span class="fl">↗</span></div>
+      <div class="e-bleu" data-tw="bloc commentaires"><span class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M20.5 12a8.5 8.5 0 0 1-12.3 7.6L3.5 20.5l1-4.4A8.5 8.5 0 1 1 20.5 12z"/></svg></span>
+        <div><b>198</b><span class="lab">commentaires</span><div class="jauge"><i style="width:11%"></i></div><small>11 % des interactions</small></div><span class="fl">↗</span></div>
+      <div class="e-encre" data-tw="bloc republications"><span class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l3 3-3 3"/><path d="M4 12v-2a4 4 0 0 1 4-4h12"/><path d="M7 21l-3-3 3-3"/><path d="M20 12v2a4 4 0 0 1-4 4H4"/></svg></span>
+        <div><b>95</b><span class="lab">republications</span><div class="jauge"><i style="width:5%"></i></div><small>5 % des interactions</small></div><span class="fl">↗</span></div>
+    </div>
+  </div>
+  <p class="pied" data-tw="source">Source : Threads, compte officiel @lacoste, (consulté le 11/09/2026).</p>
+  <div class="num">10 / 14</div>
+  <div class="notes">Première recherche laissait penser à une présence marginale : en réalité le compte est actif et suivi. Leçon d'audit : vérifier plutôt que supposer. Post épinglé du 14/12/2023 « Here, we speak crocodile » : 1 500 likes, 198 commentaires, 95 republications, soit 1 793 interactions, dont 84 % de likes. Rapporté aux 1,4 M de followers : 0,13 % d'engagement.</div>
+</section>
+
+<!-- ============ S11 · PINTEREST (réf. croquis de Sofian : titre + 2 CTA en bas à gauche, photos inclinées en haut à droite, galets ; typographie de Slush) ============ -->
+<section id="s11" data-rs="4">
+  <div class="rn">
+    <div class="rn-photos" data-tw="photos">
+      <img class="a" src="img/pinterest.png" alt="Profil officiel Lacoste sur Pinterest" data-tw="capture profil">
+      <img class="b" src="img/pin-rayures.jpg" alt="Épingle du tableau Lacoste Menswear" data-tw="épingle">
+      <img class="c" src="img/pin-rose.jpg" alt="Épingle Lacoste, polos roses" data-tw="épingle rose">
+      <img class="d" src="img/pin-pile-polos.jpg" alt="Épingle Lacoste, pile de polos colorés" data-tw="épingle polos">
+      <img class="e" src="img/pin-polo-bleu.jpg" alt="Épingle Lacoste, polo bleu ciel" data-tw="épingle bleue">
+    </div>
+    <h2 class="rn-titre" data-tw="titre">Pinterest,<br><em>une vitrine</em><br>sous‑exploitée</h2>
+    <p class="sub" data-tw="description">Des tableaux par univers (Menswear, Footwear, US Open), mais une audience près de 90 fois plus petite que sur Instagram.</p>
+    <div class="ctas" data-tw="boutons"><span class="btn btn-line">99,3 K abonnés</span><span class="btn">565 épingles Menswear <span class="rond">↗</span></span></div>
+  </div>
+  <p class="pied" data-tw="source">Sources : Pinterest, profil officiel Lacoste, (consulté le 12/09/2026) ; Instagram, compte @lacoste, (consulté le 11/09/2026).</p>
+  <div class="num">11 / 14</div>
+  <div class="notes">Profil vérifié le 12/09/2026 : 99,3 k abonnés, 172 abonnements, bio « Elevating fashion and sport since 1933 ». Tableaux : Lacoste Menswear (565 épingles), Footwear (120), Collaborations (89), US Open (19), Le Café Lacoste. 8,9 M d'abonnés sur Instagram contre 99,3 k ici : près de 90 fois moins. Pinterest sert le référencement visuel et l'inspiration mode : une marge de progression pour une marque aussi visuelle. RedNote a été écarté de l'oral : Lacoste n'y a pas de compte officiel, l'absence reste notée comme opportunité dans le bilan.</div>
+</section>
+
+<!-- ============ S12 · BILAN SWOT (inspiré, sans copie, du modèle à coins colorés et onglets verticaux) ============ -->
+<section id="s12" class="haut">
+  <h2 data-tw="titre">Bilan</h2>
+  <div class="sw" data-tw="grille">
+    <div class="swc sw-s" data-tw="forces"><span class="onglet">Forces</span>
+      <ul><li>Identité extrêmement reconnaissable</li><li>Stratégie d'ambassadeurs solide</li><li>Bonne adaptation culturelle</li></ul>
+      <svg class="vague" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M100 0 C100 40 72 50 52 68 C32 86 20 100 0 100 L100 100 Z"/></svg><b class="lettre">S</b></div>
+    <div class="swc sw-w" data-tw="faiblesses"><span class="onglet">Faiblesses</span>
+      <ul><li>Engagement ≈ 0,14 à 0,19 % au global</li><li>Communication descendante</li><li>Positionnement parfois ambigu</li></ul>
+      <svg class="vague" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M100 0 C100 40 72 50 52 68 C32 86 20 100 0 100 L100 100 Z"/></svg><b class="lettre">W</b></div>
+    <div class="swc sw-o bas" data-tw="opportunités"><span class="onglet">Opportunités</span>
+      <ul><li>RedNote : aucun compte officiel, terrain vierge</li><li>Pinterest sous-exploité</li><li>TikTok : fort potentiel</li></ul>
+      <svg class="vague" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M100 0 C100 40 72 50 52 68 C32 86 20 100 0 100 L100 100 Z"/></svg><b class="lettre">O</b></div>
+    <div class="swc sw-t bas" data-tw="menaces"><span class="onglet">Menaces</span>
+      <ul><li>Dépendance aux ambassadeurs</li><li>Dépendance au marché chinois</li><li>X en recul structurel</li></ul>
+      <svg class="vague" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M100 0 C100 40 72 50 52 68 C32 86 20 100 0 100 L100 100 Z"/></svg><b class="lettre">T</b></div>
+    <div class="sw-centre" data-tw="taux global"><div><b>0,14 à<br>0,19 %</b><span>engagement global</span></div></div>
+  </div>
+  <p class="swot-foot" data-tw="formule">Taux d'engagement global = (Σ likes + Σ commentaires + Σ partages) ⁄ Σ followers, calculé avec Influence4You et Kolsquare.</p>
+  <div class="num">12 / 14</div>
+  <div class="notes">0,14-0,19 % au global, contre 1,8-2 % pour des marques comparables plus petites. Message central : la marge de progression n'est plus dans la taille de l'audience mais dans la conversation. Opportunités : RedNote, où Lacoste n'a pas de compte officiel, et Pinterest, 99,3 k abonnés seulement.</div>
+</section>
+
+<!-- ============ S13 · CONCLUSION (même slide que l'oral de X : le mot seul, au centre) ============ -->
+<section id="s13" style="align-items:center;text-align:center">
+  <div class="fond" data-tw="photo de fond"><img src="img/conclusion.jpg" alt="Romane Da-Silva, Sofian Chtioui et M. Igor Perez"></div>
+  <div class="voile" data-tw="voile" data-op></div>
+  <h2 class="concl" data-tw="titre">Conclusion</h2>
+  <div class="num">13 / 14</div>
+  <div class="notes">Rien à lire, tout se dit, en trois phrases. « Lacoste a une audience immense, mais un engagement de 0,14 à 0,19 % : la marque parle plus qu'elle ne converse. » « Sa vraie force sociale, ce sont ses ambassadeurs, jusqu'à 30 fois plus engageants que le compte officiel. » « Les leviers sont là : faire dialoguer sa communauté, et investir des réseaux encore sous-exploités comme Pinterest ou RedNote. » S'arrêter là.</div>
+</section>
+
+<!-- ============ S14 · ANNEXE : sources en APA 7 et qui a fait quoi (même principe que l'annexe du deck X) ============ -->
+<section id="s14" class="haut">
+  <h2 data-tw="titre">Annexe : nos sources et l'usage réel de l'IA</h2>
+  <div class="anx">
+    <div class="anx-c" data-tw="sources">
+      <ol class="apa">
+        <li><span class="r">Perez, I. (2026a). <i>Stratégie social media et e-CRM, séance 4</i> <span class="dsc">(Diapositive 23 : attendus du TD)</span>. IUT de Lille. Moodle.</span></li>
+        <li><span class="r">Perez, I. (2026b). <i>Stratégie social media et e-CRM, séances 1 et 2</i> <span class="dsc">(Diapositive 9 : l'audit)</span>. IUT de Lille. Moodle.</span></li>
+        <li><span class="r">Perez, I. (2026c). <i>Stratégie social media et e-CRM, syllabus</i> <span class="dsc">(p. 22 : outils d'audit)</span>. IUT de Lille. Moodle.</span></li>
+        <li><span class="r">Autorité de la concurrence. (s. d.). <i>Décisions relatives au groupe Maus Frères</i>. autoritedelaconcurrence.fr</span></li>
+        <li><span class="r">Cdiscount. (2026, 10 septembre). <i>Stage, chargé de CRM</i> <span class="dsc">(Offre d'emploi)</span>. LinkedIn. linkedin.com/jobs/view/4453467232</span></li>
+        <li><span class="r">Influence4You. (s. d.). <i>Extension d'audit d'influenceurs</i> <span class="dsc">(Extension Chrome)</span>. influence4you.com</span></li>
+        <li><span class="r">Influence4You. (2026, 11 septembre). <i>Rapport EMV de la campagne Lacoste</i> <span class="dsc">(Courriel)</span>.</span></li>
+        <li><span class="r">Kolsquare. (s. d.). <i>Extension d'analyse d'influenceurs</i> <span class="dsc">(Extension Chrome)</span>. kolsquare.com</span></li>
+        <li><span class="r">LACOSTE. (s. d.). <i>Canal officiel</i> <span class="dsc">(KakaoTalk)</span>. 11/09/2026. pf.kakao.com/_QvxaEC</span></li>
+        <li><span class="r">LACOSTE. (s. d.). <i>Compte officiel</i> <span class="dsc">(Weibo)</span>. 11/09/2026. weibo.com</span></li>
+        <li><span class="r">Lacoste. (s. d.). <i>Histoire, raison d'être et valeurs</i>. 11/09/2026. lacoste.com</span></li>
+        <li><span class="r">Lacoste. (s. d.). <i>Profil Pinterest</i>. 12/09/2026. pinterest.fr/lacoste</span></li>
+        <li><span class="r">Lacoste [@lacoste]. (s. d.). <i>Profil Threads</i>. 11/09/2026. threads.net/@lacoste</span></li>
+        <li><span class="r">Lacoste [@lacoste]. (2026, 29 juin). <i>Crafted for an icon</i> <span class="dsc">(Publication)</span>. Instagram. instagram.com/lacoste</span></li>
+        <li><span class="r">Lacoste. (2026, 29 juin). <i>Pierre Niney &amp; Pierre Gasly for Lacoste &amp; Alpine</i> <span class="dsc">(Vidéo)</span>. YouTube. youtu.be/jIw0LAhy1Bg</span></li>
+        <li><span class="r">Wikipédia. (s. d.). <i>Lacoste</i>. 11/09/2026. fr.wikipedia.org/wiki/Lacoste_(entreprise)</span></li>
+      </ol>
+    </div>
+    <div class="anx-ia" data-tw="qui a fait quoi">
+      <h3>Qui a fait quoi</h3>
+      <div><div class="qui"><img src="img/logo-claude.svg" alt="">Claude</div>
+        <ul><li>Recherches en ligne</li><li>Recoupement des chiffres</li><li>Construction des slides</li><li>Retouche des visuels</li></ul></div>
+      <div><div class="qui">Romane &amp; Sofian</div>
+        <ul><li>Captures des profils sur les réseaux</li><li>Calcul de l'EMV</li><li>Choix des quatre réseaux de l'oral</li></ul></div>
+      <div><div class="qui">Outils d'analyse</div>
+        <div class="outils-anx"><span><img src="img/logo-kolsquare.png" alt="">Kolsquare</span><span><img src="img/logo-i4y.jpg" alt="">Influence4You</span></div></div>
+    </div>
+  </div>
+  <p class="pied" data-tw="mention">Romane Da-Silva &amp; Sofian Chtioui · BUT3 MDEE · IUT de Roubaix · 18 septembre 2026</p>
+  <div class="num">14 / 14</div>
+  <div class="notes">Annexe à montrer si le prof pose une question sur les sources ou sur l'usage de l'IA. Le dossier PDF contient la bibliographie complète des 13 réseaux, avec les sources à revérifier signalées.</div>
+</section>
+
+<script>
+/* ---------- logos sur chaque slide + file des 4 réseaux ---------- */
+const secs=[...document.querySelectorAll('section')];
+const RS=[['weibo','Weibo'],['kakao','KakaoTalk'],['threads','Threads'],['pinterest','Pinterest']];
+secs.forEach(s=>{
+  s.insertAdjacentHTML('afterbegin','<img class="lg-l" data-tw="logo Lacoste" src="img/'+(s.id==='s1'?'logo-lacoste-blanc':'logo-lacoste-t')+'.png" alt="Lacoste"><img class="lg-i" data-tw="logo IUT" src="img/logo-iut.png" alt="IUT de Lille, site de Roubaix">');
+  if(s.dataset.rs){const n=+s.dataset.rs;
+    s.insertAdjacentHTML('afterbegin','<div class="rs-suite" data-tw="4 réseaux">'+RS.map((r,k)=>`<img src="img/rs-${r[0]}.png" alt="${r[1]}" title="${r[1]}"${k+1===n?' class="on"':''}>`).join('')+'</div>');}
+});
+
+/* ---------- conclusion : si la photo de l'équipe est là, passage en style clair (logo blanc, titre blanc) ---------- */
+(()=>{const ci=document.querySelector('#s13 .fond img'); if(!ci) return;
+  const ok=()=>{const s=ci.closest('section'); s.classList.add('avec-photo'); const l=s.querySelector('.lg-l'); if(l) l.src='img/logo-lacoste-blanc.png';};
+  if(ci.complete&&ci.naturalWidth) ok(); else ci.addEventListener('load',ok);
+})();
+
+/* ---------- vidéo : la miniature se remplace par le lecteur YouTube au clic ---------- */
+/* vidéo : copie locale (img/niney-gasly.mp4), lue dans la slide sans internet ; au premier clic, lecture
+   et commandes du navigateur (pause, son, plein écran puis retour à la taille normale) */
+document.querySelectorAll('.video').forEach(v=>v.addEventListener('click',()=>{
+  if(document.body.classList.contains('reglage')||v.classList.contains('lecture'))return;
+  const c=v.querySelector('video.clip'); if(!c) return;
+  v.classList.add('lecture'); c.controls=true; c.play();
+  if(v.closest('.video-zone')) v.closest('.video-zone').classList.add('lecture');
+}));
+
+/* ---------- carrousel de la slide 3 : flèches en bas à gauche ---------- */
+const carr=(()=>{
+  const z=document.querySelector('.fac-zone'); if(!z) return null;
+  const row=z.querySelector('.fac-row'), p=z.querySelector('.fac-prec'), n=z.querySelector('.fac-suiv');
+  const pas=()=>row.querySelector('.fac').getBoundingClientRect().width+(parseFloat(getComputedStyle(row).columnGap)||0);
+  const etat=()=>{p.classList.toggle('off',row.scrollLeft<4); n.classList.toggle('off',row.scrollLeft+row.clientWidth>=row.scrollWidth-4);};
+  const bouger=d=>row.scrollBy({left:d*pas(),behavior:'smooth'});
+  p.addEventListener('click',()=>bouger(-1)); n.addEventListener('click',()=>bouger(1));
+  row.addEventListener('scroll',etat); addEventListener('resize',etat); etat();
+  return bouger;
+})();
+
+/* ---------- mode réglage (touche T) ----------
+   Chaque bloc marqué data-tw se règle : position, largeur, hauteur, zoom et cadrage de son image,
+   taille du texte, opacité (voile). Les valeurs validées se collent dans REGLAGES, clé « slide|nom ». */
+const REGLAGES={
+ /* réglages de Sofian du 12/09 (les décalages accidentels des trois blocs de la slide 10 ne sont pas repris) */
+ "s6|image Romane":{"oy":51,"ox":50,"z":1.764},
+ "s10|titre":{"dy":1.9},
+ "s10|phrase":{"dy":2.85},
+ "s10|bouton":{"dy":3.9},
+ "s10|capture Threads":{"dx":1.85},
+ "s6|carte boutique":{"z":0.983},
+ "s6|image e-CRM":{"z":1.028},
+ "s13|photo de fond":{"z":1.317,"ox":0,"oy":54.74},
+ "s13|titre":{"dx":-29.57,"dy":4},
+ "s4|2018":{"ox":17,"oy":50},
+ "s4|1933":{"oy":0,"ox":50},
+ "s4|1923":{"ox":53,"oy":30,"z":1},
+ "s4|2026":{"oy":2,"ox":50},
+ "s4|1971":{"ox":62,"oy":31,"z":5.762},
+ "s3|carte 10":{"z":1,"ox":50,"oy":20},
+ "s3|carte 7":{"ox":50,"oy":30,"z":0.703}
+ /* s7|mail Influence4You non repris : réglé sur l'ancienne carte inclinée, il envoyait le nouveau widget hors de la slide */
+};
+let perso={}; try{perso=JSON.parse(localStorage.getItem('reglages-lacoste-3')||'{}')}catch(e){perso={}}
+function sauver(){try{localStorage.setItem('reglages-lacoste-3',JSON.stringify(perso))}catch(e){}}
+const panneau=document.getElementById('panneau');
+let vise=null, i=0;
+const enReglage=()=>document.body.classList.contains('reglage');
+const cle=el=>el.closest('section').id+'|'+el.dataset.tw;
+/* image réglée par un bloc : la plus grande image qui lui appartient (pas la petite photo de profil ou le logo) */
+const imgDe=el=>{if(el.tagName==='IMG')return el;
+  const c=[...el.querySelectorAll('img')].filter(m=>m.closest('[data-tw]')===el);
+  return c.sort((a,b)=>b.offsetWidth*b.offsetHeight-a.offsetWidth*a.offsetHeight)[0]||null;};
+let modeCadre=false;
+const tous=[...document.querySelectorAll('[data-tw]')];
+tous.forEach(el=>{el._s0=el.getAttribute('style')||''; const m=imgDe(el); if(m&&m!==el) m._s0=m.getAttribute('style')||'';});
+function valeurs(el){const k=cle(el);return Object.assign({},REGLAGES[k]||{},perso[k]||{});}
+function appliquer(el){
+  el.setAttribute('style',el._s0); const m=imgDe(el); if(m&&m!==el) m.setAttribute('style',m._s0);
+  const v=valeurs(el);
+  if(v.dx||v.dy) el.style.translate=`${v.dx||0}vw ${v.dy||0}vh`;
+  if(v.w!=null) el.style.width=v.w+'vw';
+  if(v.h!=null) el.style.height=v.h+'vh';
+  if(v.fs!=null) el.style.fontSize=v.fs+'vw';
+  if(v.op!=null) el.style.opacity=v.op;
+  if(m){ if(v.z!=null) m.style.scale=v.z;
+    if(v.ox!=null){const p=`${v.ox}% ${v.oy}%`; m.style.objectPosition=p; m.style.transformOrigin=p; m.style.setProperty('--ox',v.ox+'%'); m.style.setProperty('--oy',v.oy+'%');}}
+}
+const r2=x=>Math.round(x*100)/100, borne=x=>Math.max(0,Math.min(100,x));
+function lire(el,n){
+  const v=valeurs(el); if(v[n]!=null) return v[n];
+  const m=imgDe(el);
+  if(n==='dx'||n==='dy') return 0;
+  if(n==='w') return r2(el.offsetWidth/innerWidth*100);
+  if(n==='h') return r2(el.offsetHeight/innerHeight*100);
+  if(n==='fs') return r2(parseFloat(getComputedStyle(el).fontSize)/innerWidth*100);
+  if(n==='op') return parseFloat(getComputedStyle(el).opacity);
+  if(n==='z') return m?(parseFloat(getComputedStyle(m).scale)||1):1;
+  if(!m) return 50;
+  const p=getComputedStyle(m).objectPosition.split(' '), q=n==='ox'?p[0]:p[1];
+  return q&&q.includes('%')?parseFloat(q):50;
+}
+function modif(el,ch){const k=cle(el); perso[k]=Object.assign({},perso[k]||{},ch); sauver(); appliquer(el); ecrire();}
+function choisir(el){if(vise)vise.classList.remove('vise'); vise=el; if(el)el.classList.add('vise'); ecrire();}
+function ecrire(){
+  if(!enReglage())return;
+  const els=[...secs[i].querySelectorAll('[data-tw]')];
+  const noms={dx:'x',dy:'y',w:'larg.',h:'haut.',z:'zoom',ox:'cadr.x',oy:'cadr.y',fs:'texte',op:'opac.'};
+  const im=vise&&imgDe(vise);
+  const barre=vise?`<div class="outils-r"><div class="t">Bloc choisi : <b>${vise.dataset.tw}</b></div>`
+    +(im?`<div><span>Zoom image</span><button data-a="z-">−</button><button data-a="z+">+</button></div>
+      <div><span>Cadrer l'image</span><button data-a="cg">←</button><button data-a="cd">→</button><button data-a="ch">↑</button><button data-a="cb">↓</button></div>`
+      :`<div><span>Taille du texte</span><button data-a="z-">−</button><button data-a="z+">+</button></div>`)
+    +`<div><span>Largeur</span><button data-a="l-">−</button><button data-a="l+">+</button><span>Hauteur</span><button data-a="h-">−</button><button data-a="h+">+</button></div>
+      <div><span>Glisser la souris</span><button data-a="mode" class="${modeCadre?'':'on'}">déplace le bloc</button><button data-a="mode" class="${modeCadre?'on':''}">recadre l'image</button></div>
+      <div><button data-a="0">Remettre ce bloc à zéro</button></div></div>`:'';
+  panneau.innerHTML='<b>Réglages · slide '+(i+1)+'</b>'+barre+els.map((el,j)=>{
+    const v=valeurs(el), t=Object.entries(v).map(([a,b])=>(noms[a]||a)+' '+b).join(' · ')||'—';
+    return `<div class="l${el===vise?' vise':''}" data-j="${j}"><span>${el.dataset.tw}</span><span>${t}</span></div>`;}).join('')
+    +'<div class="aide">Clic sur un bloc ou dans cette liste : le choisir · Maj+clic : bloc parent<br>Glisser ou flèches : déplacer · R : glisser pour recadrer l\'image<br>Molette ou + et − : zoom de l\'image (taille du texte s\'il n\'y a pas d\'image)<br>Alt+glisser ou Alt+flèches : cadrer l\'image · Maj+flèches : largeur et hauteur<br>Retour arrière : remettre le bloc à zéro · Échap : désélectionner<br>C : copier tous les réglages · P : panneau à gauche ou à droite · T : sortir</div>';
+  panneau.querySelectorAll('.l').forEach(r=>r.onclick=()=>choisir(els[+r.dataset.j]));
+  panneau.querySelectorAll('button[data-a]').forEach(b=>b.onclick=()=>action(b.dataset.a));
+}
+function zoomer(s){
+  if(!vise)return;
+  if(vise.hasAttribute('data-op')) modif(vise,{op:Math.max(0,Math.min(1,r2(lire(vise,'op')+.05*s)))});
+  else if(imgDe(vise)) modif(vise,{z:Math.max(.2,Math.round(lire(vise,'z')*(s>0?1.04:1/1.04)*1000)/1000)});
+  else modif(vise,{fs:Math.round(lire(vise,'fs')*(s>0?1.04:1/1.04)*1000)/1000});
+}
+function cadrer(n,d){const o=n==='ox'?'oy':'ox'; modif(vise,{[n]:borne(lire(vise,n)+d),[o]:lire(vise,o)});}
+function action(a){
+  if(!vise)return;
+  const t={'z+':()=>zoomer(1),'z-':()=>zoomer(-1),cg:()=>cadrer('ox',-3),cd:()=>cadrer('ox',3),ch:()=>cadrer('oy',-3),cb:()=>cadrer('oy',3),
+    'l+':()=>modif(vise,{w:r2(lire(vise,'w')+1)}),'l-':()=>modif(vise,{w:r2(lire(vise,'w')-1)}),
+    'h+':()=>modif(vise,{h:r2(lire(vise,'h')+1)}),'h-':()=>modif(vise,{h:r2(lire(vise,'h')-1)}),
+    mode:()=>{modeCadre=!modeCadre;ecrire();},'0':()=>{delete perso[cle(vise)];sauver();appliquer(vise);ecrire();}};
+  if(t[a])t[a]();
+}
+addEventListener('wheel',e=>{
+  if(!enReglage()||!vise||!vise.contains(e.target))return;
+  e.preventDefault(); zoomer(e.deltaY<0?1:-1);
+},{passive:false});
+function suivre(f){const mv=e=>f(e),up=()=>{removeEventListener('mousemove',mv);removeEventListener('mouseup',up)};addEventListener('mousemove',mv);addEventListener('mouseup',up);}
+addEventListener('mousedown',ev=>{
+  if(!enReglage()||ev.target.closest('.panneau'))return;
+  let el=ev.target.closest('[data-tw]'); if(!el)return;
+  if(ev.shiftKey){const p=el.parentElement&&el.parentElement.closest('[data-tw]'); if(p) el=p;}
+  ev.preventDefault(); choisir(el);
+  const x0=ev.clientX,y0=ev.clientY;
+  if((ev.altKey||modeCadre)&&imgDe(el)){
+    const ox0=lire(el,'ox'),oy0=lire(el,'oy'),r=el.getBoundingClientRect();
+    suivre(e=>modif(el,{ox:r2(borne(ox0-(e.clientX-x0)/r.width*100)),oy:r2(borne(oy0-(e.clientY-y0)/r.height*100))})); return;
+  }
+  const dx0=lire(el,'dx'),dy0=lire(el,'dy');
+  suivre(e=>modif(el,{dx:r2(dx0+(e.clientX-x0)/innerWidth*100),dy:r2(dy0+(e.clientY-y0)/innerHeight*100)}));
+});
+addEventListener('click',e=>{if(enReglage()&&!e.target.closest('.panneau')&&e.target.closest('[data-tw]'))e.preventDefault();},true);
+function copier(t){
+  if(navigator.clipboard&&navigator.clipboard.writeText) return navigator.clipboard.writeText(t).catch(()=>vieux(t));
+  vieux(t);
+}
+function vieux(t){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove();}
+tous.forEach(el=>{if(Object.keys(valeurs(el)).length) appliquer(el);});
+
+/* ---------- navigation ---------- */
+const liens=[...document.querySelectorAll('.rail a[href^="#s"]')].filter(a=>a.textContent.trim());
+const barre=document.querySelector('.rail .bar i');
+function maj(){
+  secs.forEach((s,k)=>s.classList.toggle('ici',k===i));
+  liens.forEach((a,k)=>a.classList.toggle('on',k===i));
+  if(barre) barre.style.height=((i+1)/secs.length*100)+'%';
+  ecrire();
+}
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){i=secs.indexOf(e.target);maj();}})},{threshold:.6});
+secs.forEach(s=>io.observe(s));
+maj();
+function aller(n){i=Math.max(0,Math.min(secs.length-1,n));secs[i].scrollIntoView({behavior:'smooth'});}
+addEventListener('keydown',e=>{
+  const k=e.key;
+  if(e.target&&e.target.tagName==='VIDEO')return; /* la vidéo garde ses raccourcis (espace = pause) */
+  if(document.activeElement&&document.activeElement.isContentEditable)return;
+  if(enReglage()&&vise){
+    if(k.startsWith('Arrow')){
+      e.preventDefault();
+      const hz=k==='ArrowLeft'||k==='ArrowRight', s=(k==='ArrowRight'||k==='ArrowDown')?1:-1;
+      if(e.altKey&&imgDe(vise)){const n=hz?'ox':'oy',o=hz?'oy':'ox'; modif(vise,{[n]:borne(lire(vise,n)+2*s),[o]:lire(vise,o)});}
+      else if(e.shiftKey){ if(hz) modif(vise,{w:r2(lire(vise,'w')+.5*s)}); else modif(vise,{h:r2(lire(vise,'h')+.5*s)}); }
+      else {const n=hz?'dx':'dy'; modif(vise,{[n]:r2(lire(vise,n)+.25*s)});}
+      return;
+    }
+    if(k==='+'||k==='='||k==='-'||k==='_'){e.preventDefault(); zoomer((k==='+'||k==='=')?1:-1); return;}
+    if(k==='r'||k==='R'){modeCadre=!modeCadre; ecrire(); return;}
+    if(k==='Backspace'||k==='Delete'){e.preventDefault(); delete perso[cle(vise)]; sauver(); appliquer(vise); ecrire(); return;}
+    if(k==='Escape'){choisir(null);return;}
+  }
+  if(carr&&!enReglage()&&secs[i].id==='s3'&&(k==='ArrowRight'||k==='ArrowLeft')){e.preventDefault(); carr(k==='ArrowRight'?1:-1); return;}
+  if(k==='t'||k==='T'){document.body.classList.toggle('reglage'); if(!enReglage())choisir(null); else ecrire(); return;}
+  if((k==='c'||k==='C')&&enReglage()){
+    const tout=Object.assign({},REGLAGES); for(const c in perso) tout[c]=Object.assign({},REGLAGES[c]||{},perso[c]);
+    copier(JSON.stringify(tout,null,1)); const a=panneau.querySelector('.aide'); if(a) a.textContent='Réglages copiés : colle-les dans la conversation.'; return;
+  }
+  if((k==='p'||k==='P')&&enReglage()){panneau.classList.toggle('gauche');return;}
+  if(k==='n'||k==='N'){document.body.classList.toggle('notesvues');return;}
+  if(['ArrowDown','PageDown',' '].includes(k)){e.preventDefault();aller(i+1);}
+  else if(['ArrowUp','PageUp'].includes(k)){e.preventDefault();aller(i-1);}
+  else if(k==='Home'){e.preventDefault();aller(0);}
+  else if(k==='End'){e.preventDefault();aller(secs.length-1);}
+});
+</script>
+</body>
+</html>
