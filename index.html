@@ -169,6 +169,9 @@ button.rond.off{opacity:.3;cursor:default}
 .serpent svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .serpent path{fill:none;stroke:var(--vert);stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke}
 .serpent path.fin{stroke:rgba(10,10,10,.28);stroke-dasharray:3 7}
+/* animation en boucle, comme le sommaire : la ligne verte se trace sur la ligne grise, chaque date passe au vert quand elle est atteinte
+   (le tracé et les instants d'allumage sont calculés en JavaScript d'après la vraie longueur du serpent à l'écran) */
+.serpent path.base{stroke:rgba(10,10,10,.16)}
 .jal{position:absolute;width:15vh;height:15vh;transform:translate(-50%,-50%);z-index:1}
 .jal .ph{width:100%;height:100%;border-radius:50%;overflow:hidden;border:5px solid var(--fond);box-shadow:0 0 0 2px var(--vert);background:#fff}
 .jal .ph img{width:100%;height:100%;object-fit:cover;display:block}
@@ -479,6 +482,9 @@ body.reglage .panneau{display:block}
   [data-tw]{outline:0!important}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .piste-in .ligne-v{animation:none;width:100%}
+  .serpent path.trace{display:none}
+  .serpent path.base{stroke:var(--vert)}
+  .serpent .jal .jt b,.serpent .jal .ph{animation:none!important}
   .etp .n{animation:none;color:var(--vert)}
   .etp i{animation:none;background:var(--vert);border-color:var(--vert)}
   .mail-emv{transform:rotate(-3deg)}
@@ -574,7 +580,8 @@ body.reglage .panneau{display:block}
   <h2 data-tw="titre">L'histoire de Lacoste</h2>
   <div class="serpent" data-tw="frise">
     <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M 0 33 L 86 33 C 99 33 99 76 86 76 L 5 76"/>
+      <path class="base" d="M 0 33 L 86 33 C 99 33 99 76 86 76 L 5 76"/>
+      <path class="trace" d="M 0 33 L 86 33 C 99 33 99 76 86 76 L 5 76"/>
       <path class="fin" d="M 5 76 L 0 76"/>
     </svg>
     <div class="jal h" style="left:13%;top:33%" data-tw="1923"><div class="ph"><img src="img/rene-lacoste.webp" alt="René Lacoste" style="object-position:50% 30%"></div>
@@ -876,6 +883,40 @@ document.querySelectorAll('.video').forEach(v=>v.addEventListener('click',()=>{
   v.classList.add('lecture'); c.controls=true; c.play();
   if(v.closest('.video-zone')) v.closest('.video-zone').classList.add('lecture');
 }));
+
+/* ---------- frise de la slide 4 : même animation que le sommaire ----------
+   La ligne verte se trace de 1923 à 2026 ; chaque date (année + cercle) passe au vert quand la ligne l'atteint ;
+   tout reste vert un instant, s'efface, puis recommence. Le SVG étant étiré à la largeur de l'écran, la longueur
+   du tracé et l'instant d'allumage de chaque date sont mesurés à l'écran, puis écrits dans une feuille de style. */
+(()=>{
+  const tr=document.querySelector('.serpent path.trace'); if(!tr) return;
+  const nodes=[...document.querySelectorAll('.serpent .jal')];
+  const st=document.createElement('style'); document.head.appendChild(st);
+  const DUREE='11s', TRACE=78; /* la ligne se trace pendant 78 % du cycle */
+  const gris='rgba(10,10,10,.28)', anneauGris='0 0 0 2px rgba(10,10,10,.18)', anneauVert='0 0 0 3px var(--vert)';
+  function calculer(){
+    const m=tr.getScreenCTM(); if(!m) return;
+    const T=tr.getTotalLength(), n=400, pts=[]; let L=0;
+    for(let k=0;k<=n;k++){
+      const p=tr.getPointAtLength(T*k/n), x=m.a*p.x+m.c*p.y+m.e, y=m.b*p.x+m.d*p.y+m.f;
+      if(k) L+=Math.hypot(x-pts[k-1].x,y-pts[k-1].y);
+      pts.push({x,y,L});
+    }
+    let css=`@media screen{.serpent path.trace{stroke-dasharray:${L}px;stroke-dashoffset:${L}px;animation:serp-trace ${DUREE} linear infinite}}
+@keyframes serp-trace{0%{stroke-dashoffset:${L}px;opacity:1}${TRACE}%{stroke-dashoffset:0;opacity:1}92%{stroke-dashoffset:0;opacity:1}97%{stroke-dashoffset:0;opacity:0}100%{stroke-dashoffset:${L}px;opacity:0}}`;
+    nodes.forEach((nd,j)=>{
+      const r=nd.getBoundingClientRect(), cx=r.left+r.width/2, cy=r.top+r.height/2;
+      let best=pts[0]; for(const p of pts){ if(Math.hypot(p.x-cx,p.y-cy)<Math.hypot(best.x-cx,best.y-cy)) best=p; }
+      const on=best.L/L*TRACE, a=Math.max(0,on-.3).toFixed(2), b=Math.min(90,on+2).toFixed(2);
+      nd.classList.add('n'+j);
+      css+=`\n@media screen{.serpent .jal.n${j} .jt b{animation:serp-b${j} ${DUREE} ease infinite}.serpent .jal.n${j} .ph{animation:serp-r${j} ${DUREE} ease infinite}}
+@keyframes serp-b${j}{0%,${a}%{color:${gris}}${b}%,92%{color:var(--vert)}97%,100%{color:${gris}}}
+@keyframes serp-r${j}{0%,${a}%{box-shadow:${anneauGris}}${b}%,92%{box-shadow:${anneauVert}}97%,100%{box-shadow:${anneauGris}}}`;
+    });
+    st.textContent=css;
+  }
+  calculer(); addEventListener('resize',calculer); document.fonts&&document.fonts.ready.then(calculer);
+})();
 
 /* ---------- carrousel de la slide 3 : flèches en bas à gauche ---------- */
 const carr=(()=>{
