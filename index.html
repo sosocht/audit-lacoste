@@ -493,6 +493,12 @@ button.rond.off{opacity:.3;cursor:default}
 .notes{display:none;position:fixed;left:var(--rail);right:0;bottom:0;background:var(--encre);
   color:#fff;padding:1.6vh 4vw;font-size:var(--fs-sm);line-height:1.55;max-height:34vh;overflow:auto;z-index:40}
 body.notesvues section.ici .notes{display:block}
+/* notes modifiables en direct (14/09) : clic pour écrire, Échap pour sortir, C pour copier */
+.notes{cursor:text;outline:0}
+.notes:focus{box-shadow:inset 0 3px 0 var(--bleu)}
+.notes::after{content:attr(data-aide);display:block;margin-top:.7em;font-size:11px;color:rgba(255,255,255,.45);user-select:none}
+.toast{position:fixed;left:50%;bottom:3vh;transform:translateX(-50%);background:var(--bleu);color:#fff;border-radius:999px;padding:.5em 1.2em;font-size:13px;font-weight:600;z-index:95;opacity:0;transition:opacity .25s;pointer-events:none}
+.toast.on{opacity:1}
 
 /* ---------- mode réglage : touche T ---------- */
 body.reglage [data-tw]{outline:1px dashed rgba(29,155,240,.75);outline-offset:1px;cursor:grab}
@@ -1019,7 +1025,10 @@ const REGLAGES={
  "s3|carte 10":{"z":1,"ox":50,"oy":20},
  "s3|carte 7":{"ox":50,"oy":30,"z":0.703},
  /* réglages de Sofian du 14/09 : carte Fondation Lacoste */
- "s3|carte 11":{"z":2.281,"oy":0,"ox":50,"w":22.09},
+ "s3|carte 11":{"z":1,"oy":0,"ox":50,"w":22.09},
+ "s3|carte 5":{"z":0.962},
+ /* titre de couverture : hauteur réglée par Sofian, recentré horizontalement (dx 2,18 → 0) */
+ "s1|titre":{"dx":0,"dy":-7.59},
  "s3|carte 9":{"dx":0,"dy":0,"z":1}
  /* s7|mail Influence4You non repris : réglé sur l'ancienne carte inclinée, il envoyait le nouveau widget hors de la slide */
 };
@@ -1123,6 +1132,26 @@ function copier(t){
 }
 function vieux(t){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove();}
 tous.forEach(el=>{if(Object.keys(valeurs(el)).length) appliquer(el);});
+/* ---------- notes orateur modifiables (touche N) : clic pour écrire, Échap pour sortir, C pour tout copier ---------- */
+const LNG=document.documentElement.lang||'fr', CLE_N='notes-lacoste-'+LNG;
+let notesPerso={}; try{notesPerso=JSON.parse(localStorage.getItem(CLE_N)||'{}')}catch(e){notesPerso={}}
+const sauverNotes=()=>{try{localStorage.setItem(CLE_N,JSON.stringify(notesPerso))}catch(e){}};
+const notesEls=[...document.querySelectorAll('section .notes')];
+const AIDE=LNG==='en'?'Click to edit · Esc to leave · C to copy':'Clic pour modifier · Échap pour sortir · C pour copier';
+notesEls.forEach(n=>{const id=n.closest('section').id; n._orig=n.innerText.trim(); n.contentEditable='true'; n.spellcheck=true; n.dataset.aide=AIDE;
+  if(notesPerso[id]!=null){ if(notesPerso[id]===n._orig) delete notesPerso[id]; else n.innerText=notesPerso[id]; }
+  n.addEventListener('input',()=>{const t=n.innerText.trim(); if(t===n._orig) delete notesPerso[id]; else notesPerso[id]=t; sauverNotes();});
+});
+sauverNotes();
+const toast=document.createElement('div'); toast.className='toast'; document.body.appendChild(toast);
+function prevenir(t){toast.textContent=t; toast.classList.add('on'); clearTimeout(prevenir._t); prevenir._t=setTimeout(()=>toast.classList.remove('on'),2200);}
+function toutCopier(){
+  const tout=Object.assign({},REGLAGES); for(const c in perso) tout[c]=Object.assign({},REGLAGES[c]||{},perso[c]);
+  notesEls.forEach(n=>{const sec=n.closest('section'), id=sec.id; if(notesPerso[id]!=null) tout['notes|'+id+' (slide '+(secs.indexOf(sec)+1)+')']=notesPerso[id];});
+  copier(JSON.stringify(tout,null,1));
+  const nb=Object.keys(notesPerso).length;
+  prevenir(LNG==='en'?('Copied: settings'+(nb?' + '+nb+' edited note(s)':'')):('Copié : réglages'+(nb?' + '+nb+' note(s) modifiée(s)':'')));
+}
 
 /* ---------- navigation ---------- */
 const liens=[...document.querySelectorAll('.rail a[href^="#s"]')].filter(a=>a.textContent.trim());
@@ -1139,6 +1168,8 @@ maj();
 function aller(n){i=Math.max(0,Math.min(secs.length-1,n));secs[i].scrollIntoView({behavior:'smooth'});}
 addEventListener('keydown',e=>{
   const k=e.key;
+  /* dans une note en cours d'écriture : Échap pour sortir, tout le reste s'écrit */
+  if(document.activeElement&&document.activeElement.classList&&document.activeElement.classList.contains('notes')){ if(k==='Escape'){e.preventDefault();document.activeElement.blur();} return; }
   if(e.target&&e.target.tagName==='VIDEO')return; /* la vidéo garde ses raccourcis (espace = pause) */
   if(document.activeElement&&document.activeElement.isContentEditable)return;
   if(enReglage()&&vise){
@@ -1157,10 +1188,7 @@ addEventListener('keydown',e=>{
   }
   if(carr&&!enReglage()&&secs[i].id==='s3'&&(k==='ArrowRight'||k==='ArrowLeft')){e.preventDefault(); carr(k==='ArrowRight'?1:-1); return;}
   if(k==='t'||k==='T'){document.body.classList.toggle('reglage'); if(!enReglage())choisir(null); else ecrire(); return;}
-  if((k==='c'||k==='C')&&enReglage()){
-    const tout=Object.assign({},REGLAGES); for(const c in perso) tout[c]=Object.assign({},REGLAGES[c]||{},perso[c]);
-    copier(JSON.stringify(tout,null,1)); const a=panneau.querySelector('.aide'); if(a) a.textContent='Réglages copiés : colle-les dans la conversation.'; return;
-  }
+  if((k==='c'||k==='C')&&!e.metaKey&&!e.ctrlKey){toutCopier(); const a=panneau.querySelector('.aide'); if(enReglage()&&a) a.textContent='Réglages et notes copiés : colle-les dans la conversation.'; return;}
   if((k==='p'||k==='P')&&enReglage()){panneau.classList.toggle('gauche');return;}
   if(k==='n'||k==='N'){document.body.classList.toggle('notesvues');return;}
   if(['ArrowDown','PageDown',' '].includes(k)){e.preventDefault();aller(i+1);}
