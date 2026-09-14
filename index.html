@@ -153,6 +153,10 @@ strong{font-weight:600}
 .fac.pv{background:var(--vert)} .fac.pn{background:var(--encre)} .fac.pb{background:var(--bleu)}
 .fac.plein .gros{margin-top:auto;font-size:clamp(3rem,5.4vw,4.8rem);font-weight:600;letter-spacing:-.045em;line-height:.95}
 .fac.plein .txt{position:static;margin-top:auto}
+/* carte photo à texte long (raison d'être, 14/09) */
+.fac.long .txt b{font-size:clamp(20px,1.9vw,1.75rem);line-height:1.12}
+.fac.long .txt span{display:block;margin-top:.5em;font-style:italic}
+.fac.long::after{background:linear-gradient(180deg,rgba(0,0,0,0) 38%,rgba(0,0,0,.78) 100%)}
 .fac.plein .txt b{font-size:clamp(20px,1.9vw,1.75rem);line-height:1.12}
 .fac.plein .txt span{display:block;margin-top:.6em;font-style:italic}
 button.rond{cursor:pointer;font:inherit;font-size:var(--fs-md);font-weight:600;background:none;color:var(--encre);padding:0;transition:opacity .2s}
@@ -573,7 +577,7 @@ body.reglage .panneau{display:block}
     <div class="piste-in" data-tw="parcours">
       <div class="ligne"></div><div class="ligne-v"></div>
       <a class="etp" href="#s3" data-tw="étape 1"><span class="n">01<span class="p">Slides 3 à 5</span></span><i></i><b>Qui sommes-nous</b><span class="d">Lacoste, ses dates clés, nos deux métiers</span></a>
-      <a class="etp" href="#s8" data-tw="étape 2"><span class="n">02<span class="p">Slides 6 à 9</span></span><i></i><b>L'audit</b><span class="d">Quatre réseaux passés au crible</span>
+      <a class="etp" href="#s8" data-tw="étape 2"><span class="n">02<span class="p">Slides 6 à 9</span></span><i></i><b>L'audit</b><span class="d">Quatre réseaux et leurs KPI</span>
         <span class="mini"><img src="img/rs-weibo.png" alt="Weibo"><img src="img/rs-kakao.png" alt="KakaoTalk"><img src="img/rs-threads.png" alt="Threads"><img src="img/rs-pinterest.png" alt="Pinterest"></span></a>
       <a class="etp" href="#s7" data-tw="étape 3"><span class="n">03<span class="p">Slide 10</span></span><i></i><b>Ambassadeurs</b><span class="d">L'EMV, ce que vaut leur visibilité</span></a>
       <a class="etp" href="#s12" data-tw="étape 4"><span class="n">04<span class="p">Slides 11 à 13</span></span><i></i><b>Bilan</b><span class="d">Taux d'engagement, SWOT, conclusion et sources</span></a>
@@ -591,7 +595,7 @@ body.reglage .panneau{display:block}
       <div class="droite chips" data-tw="pilules"><span class="chip chip-vert">Fashion-sport</span><span class="chip chip-vert">Premium</span><span class="chip chip-vert">Lifestyle</span></div>
     </div>
     <div class="fac-row" data-tw="rangée">
-      <div class="fac plein pv" data-tw="carte raison d'être"><span class="chip chip-blanc">Raison d'être</span>
+      <div class="fac long" data-tw="carte raison d'être"><img src="img/raison-etre.jpg" alt="Collaborateur Lacoste dans les bureaux de la marque" style="object-position:50% 38%"><span class="chip on">Raison d'être</span>
         <div class="txt"><b>Faire de l'élégance une valeur qui transcende les différences</b><span>« Elevating elegance to a value that transcends differences »</span></div></div>
       <div class="fac plein pn" data-tw="carte mission"><span class="chip chip-blanc">Mission</span>
         <div class="txt"><b>Libérer le mouvement et connecter toutes les cultures</b><span>« Liberate movement and connect all cultures »</span></div></div>
