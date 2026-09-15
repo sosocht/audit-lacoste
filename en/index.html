@@ -498,7 +498,7 @@ button.rond.off{opacity:.3;cursor:default}
   color:#fff;padding:1.6vh 4vw;font-size:var(--fs-sm);line-height:1.55;max-height:34vh;overflow:auto;z-index:40}
 body.notesvues section.ici .notes{display:block}
 /* notes modifiables en direct (14/09) : clic pour écrire, Échap pour sortir, C pour copier */
-.notes{cursor:text;outline:0}
+.notes{cursor:text;outline:0;white-space:pre-line}
 .notes:focus{box-shadow:inset 0 3px 0 var(--bleu)}
 .notes::after{content:attr(data-aide);display:block;margin-top:.7em;font-size:11px;color:rgba(255,255,255,.45);user-select:none}
 .toast{position:fixed;left:50%;bottom:3vh;transform:translateX(-50%);background:var(--bleu);color:#fff;border-radius:999px;padding:.5em 1.2em;font-size:13px;font-weight:600;z-index:95;opacity:0;transition:opacity .25s;pointer-events:none}
@@ -567,7 +567,8 @@ body.reglage .panneau{display:block}
   <p class="mention tw" data-tw="mention" style="--x:50%;--y:93.4%;--l:86%">R5.MDEE.13 · Social Media Strategy &amp; e-CRM · Mr Igor Perez</p>
   <p class="meta tw" data-tw="auteurs" style="--x:50%;--y:96.2%;--l:86%">Romane Da‑Silva &amp; Sofian Chtioui · BUT3 MDEE · IUT de Roubaix · September 18, 2026</p>
   <div class="num">1 / 13</div>
-  <div class="notes">Hi, we're Romane and Sofian. We're presenting our social-media audit of Lacoste. Basically, we put ourselves in the shoes of two people joining Lacoste who need to review its online presence.</div>
+  <div class="notes">Hi everyone, hope you're doing well.
+Today we're going to present our audit of Lacoste and its social media strategy.</div>
 </section>
 
 <!-- ============ S2 · SOMMAIRE (parcours en 4 étapes sur une ligne, sans pilule) ============ -->
@@ -579,12 +580,16 @@ body.reglage .panneau{display:block}
       <a class="etp" href="#s3" data-tw="étape 1"><span class="n">01<span class="p">Slides 3-5</span></span><i></i><b>Who we are</b><span class="d">Lacoste, its key dates, our two careers</span></a>
       <a class="etp" href="#s8" data-tw="étape 2"><span class="n">02<span class="p">Slides 6-9</span></span><i></i><b>The audit</b><span class="d">Four platforms and their KPIs</span>
         <span class="mini"><img src="../img/rs-weibo.png" alt="Weibo"><img src="../img/rs-kakao.png" alt="KakaoTalk"><img src="../img/rs-threads.png" alt="Threads"><img src="../img/rs-pinterest.png" alt="Pinterest"></span></a>
-      <a class="etp" href="#s7" data-tw="étape 3"><span class="n">03<span class="p">Slide 10</span></span><i></i><b>Ambassadors</b><span class="d">EMV, what their visibility is worth</span></a>
+      <a class="etp" href="#s7" data-tw="étape 3"><span class="n">03<span class="p">Slide 10</span></span><i></i><b>Ambassadors</b><span class="d">EMV and what their visibility is worth</span></a>
       <a class="etp" href="#s12" data-tw="étape 4"><span class="n">04<span class="p">Slides 11-13</span></span><i></i><b>Wrap-up</b><span class="d">Engagement rates, SWOT, conclusion and sources</span></a>
     </div>
   </div>
   <div class="num">2 / 13</div>
-  <div class="notes">We split this into four parts. First, who we are: Lacoste, its key dates, and our two careers. Then the audit, on four platforms we see less often: Weibo, KakaoTalk, Threads and Pinterest. Next, the ambassadors, and what their visibility is worth. And we finish with the wrap-up: engagement rates and the SWOT.</div>
+  <div class="notes">Here's the outline, four parts:
+- first, who we are: Lacoste, its key dates, and our two careers within the brand;
+- then the audit, on four social networks we picked: Weibo, KakaoTalk, Threads and Pinterest;
+- next, the ambassadors, and what their visibility is worth for brands;
+- and we'll finish with the wrap-up, with engagement rates and a SWOT.</div>
 </section>
 
 <!-- ============ S3 · LA MARQUE (réf. « Explore Our Facilities », Velocity Club) ============ -->
@@ -597,17 +602,17 @@ body.reglage .panneau{display:block}
     <div class="fac-row" data-tw="rangée">
       <div class="fac long" data-tw="carte raison d'être"><img src="../img/raison-etre.jpg" alt="A Lacoste employee at the brand’s offices" style="object-position:50% 38%"><span class="chip on">Purpose</span>
         <div class="txt"><b>Elevating elegance to a value that transcends differences</b><span>Lacoste’s purpose statement</span></div></div>
-      <div class="fac plein pn" data-tw="carte mission"><span class="chip chip-blanc">Mission</span>
+      <div class="fac long" data-tw="carte mission"><img src="../img/mission.jpg" alt="Lacoste sales associate with a customer in store" style="object-position:45% 40%"><span class="chip on">Mission</span>
         <div class="txt"><b>Liberate movement and connect all cultures</b><span>Lacoste’s mission statement</span></div></div>
-      <div class="fac plein pb" data-tw="carte vision"><span class="chip chip-blanc">Vision</span>
+      <div class="fac long" data-tw="carte vision"><img src="../img/vision.jpg" alt="Life is a Beautiful Sport campaign" style="object-position:50% 38%"><span class="chip on">Vision</span>
         <div class="txt"><b>Become the most inspiring fashion-sport brand</b><span>beyond tennis, into fashion and lifestyle</span></div></div>
-      <div class="fac plein pc" data-tw="carte valeurs"><span class="chip">Values</span>
-        <div class="txt"><b>Play as one team<br>Play with elegance<br>Play by daring<br>Play with tenacity</b><span>respect, fair play, daring, perseverance</span></div></div>
+      <div class="fac long" data-tw="carte valeurs"><img src="../img/valeurs.jpg" alt="The four Lacoste values posters" style="object-position:50% 45%"><span class="chip on">Values</span>
+        <div class="txt"><b>4 values</b><span>respect, fair play, daring, perseverance</span></div></div>
       <div class="fac" data-tw="carte 1"><img src="../img/rene-lacoste.webp" alt="René Lacoste playing tennis"><span class="chip chip-blanc">Archives</span>
         <div class="txt"><b>1933</b><span>René Lacoste &amp; André Gillier</span></div></div>
       <div class="fac" data-tw="carte 2" style="background:#fff"><img src="../img/polo-produit.png" alt="Lacoste L.12.12 polo shirt" style="object-position:50% 22%"><span class="chip">Iconic product</span>
         <div class="txt"><b>L.12.12</b><span>The petit piqué polo shirt</span></div></div>
-      <div class="fac" data-tw="carte 3"><img src="../img/store-facade.jpg" alt="Lacoste store" style="object-position:47% 50%"><span class="chip chip-blanc">Network</span>
+      <div class="fac" data-tw="carte 3"><img src="../img/store-facade.jpg" alt="Lacoste store" style="object-position:47% 50%"><span class="chip chip-blanc">Global network</span>
         <div class="txt"><b>98 countries</b><span>1,100 stores, 8,200 employees</span></div></div>
       <div class="fac" data-tw="carte 4"><img src="../img/michel-lacoste.jpg" alt="Michel Lacoste" style="object-position:45% 28%"><span class="chip chip-blanc">Group</span>
         <div class="txt"><b>Maus Frères</b><span>Control ceded by Michel Lacoste in 2012</span></div></div>
@@ -633,7 +638,7 @@ body.reglage .panneau{display:block}
   </div>
   <p class="pied" data-tw="source">Sources: Lacoste, official website; Autorité de la concurrence; Wikipedia (accessed 11/09/2026). Figures cross-checked with <img class="ia" src="../img/logo-claude.svg" alt="">Claude.</p>
   <div class="num">3 / 13</div>
-  <div class="notes">Lacoste starts with a purpose: elevating elegance to a value that transcends differences. Its mission: liberate movement and connect all cultures. Its vision: become the most inspiring fashion-sport brand. And four values you see everywhere in its comms: play as one team, with elegance, by daring, with tenacity. In concrete terms today, that's 98 countries, 1,100 stores, 43 e-shops, and since 2012 the group has belonged to Maus Frères. We won't scroll through every card, the key dates come right after.</div>
+  <div class="notes">Quick question to start: does anyone know why Lacoste has a crocodile? … In 1923, in Boston, René Lacoste makes a bet: he's promised a crocodile-skin suitcase if he wins his match. The American press gives him that nickname, a friend draws the animal, and since 1933 it's been embroidered on every polo. Today, Lacoste positions itself in premium fashion-sport, between sport and fashion. On the maps, EMEA stands for Europe, the Middle East and Africa: the region with more than half of employees. In France, that's about €330 million in revenue, more than 850 employees and a factory in Troyes, for a group worth around €3 billion. Against Ralph Lauren, Tommy Hilfiger or Hugo Boss, Lacoste is smaller, but more profitable than Ralph Lauren and Hugo Boss.</div>
 </section>
 
 <!-- ============ S4 · HISTOIRE (frise en serpent avec photos, demandée par Sofian comme pour le deck X) ============ -->
@@ -660,7 +665,7 @@ body.reglage .panneau{display:block}
   </div>
   <p class="pied" data-tw="source">Source: Lacoste, brand history (accessed 11/09/2026). Dates cross-checked with <img class="ia" src="../img/logo-claude.svg" alt="">Claude.</p>
   <div class="num">4 / 13</div>
-  <div class="notes">Six dates to understand the brand. 1923, René Lacoste earns his crocodile nickname after a bet over a suitcase. 1933, he launches the petit piqué polo with André Gillier: the birth of fashion-sport. 1971, Lacoste becomes a partner of Roland-Garros. 2012, the family hands control to Maus Frères. 2018, the Save Our Species campaign: ten endangered species replace the croc on the polos. And 2026, a new identity and the return of “Life is a Beautiful Sport”. This timeline is brand content: it tells the brand's story instead of selling, like we saw in class. Now let's move on to us.</div>
+  <div class="notes">To understand how Lacoste communicates today, we need to look back at a few key moments. At the start, it's an athlete inventing a garment to play better: the polo is born on a tennis court, and the brand never leaves tennis, with Roland-Garros as its showcase. In 2012, the family hands over to a Swiss group. In 2018, Lacoste dares to touch its own logo to defend endangered species: it's a great example of brand content, the brand tells a story instead of showing a product. And this year, it brings back a historic signature to remind everyone where it comes from.</div>
 </section>
 
 <!-- ============ S6 · QUI SOMMES-NOUS (réf. « Made for You », BriskPay) ============ -->
@@ -691,7 +696,7 @@ body.reglage .panneau{display:block}
   </div>
   <p class="pied" data-tw="source">Sources: APEC; Glassdoor; Welcome to the Jungle; Lacoste, Cdiscount and Kering job postings (accessed 14/09/2026). Research with <img class="ia" src="../img/logo-claude.svg" alt="">Claude.</p>
   <div class="num">5 / 13</div>
-  <div class="notes">Romane: I see myself as an Assistant Art Director, based on a real internship posting at Lacoste. Basically, it's about building the brand's image: moodboards, shoots, keeping the same identity across every platform. Starting out, that's €30,000 to €37,000 gross a year, around €50,000 as a senior. You need a design school, bachelor's to master's level, and above all a portfolio. Sofian: I'm going for e-CRM Officer. Concretely, I'd run the customer database: segmented email campaigns, loyalty journeys, and reading the data to stop customers leaving. You start between €32,000 and €38,000 gross, €38,000 to €47,000 after three to five years. A BUT MDEE with a CRM apprenticeship is enough for a first job, a master's helps you move up. The downside is working under pressure during big commercial moments. And at Lacoste, my first project is right there waiting: KakaoTalk, 400,000 friends, and nothing posted in 54 days.</div>
+  <div class="notes">We're going to present our two careers. Assistant Art Director means keeping the same Lacoste image across every platform: moodboards, shoots, visual identity; you get there through a design school, with a portfolio. e-CRM Manager means handling customer relationships: knowing your customers, sorting them by profile, and sending the right message at the right time so they come back. You can do it as a permanent employee at a brand, with a salary and a path towards CRM manager, or as a freelancer: you're brought in on a mission to set up the tool and the customer journeys, then you move on to another company. And at Lacoste, the first project would be an easy pick: KakaoTalk, which we'll see right after.</div>
 </section>
 
 <!-- ============ S8 · WEIBO (réf. hero « Unique industrial equipment », Blend Bend : titre dans une encoche, image découpée, carte dans le coin) ============ -->
@@ -713,7 +718,7 @@ body.reglage .panneau{display:block}
   </div>
   <p class="pied" data-tw="source">Source: Weibo, LACOSTE account, 27 posts reviewed (accessed 14/09/2026). Account found with <img class="ia" src="../img/logo-claude.svg" alt="">Claude.</p>
   <div class="num">6 / 13</div>
-  <div class="notes">Weibo is a bit like the Chinese Twitter, and it's where Lacoste is strongest, thanks to one man: Wang Yibo. The account has 536,000 followers and posts a lot: 17 posts in the last 30 days, at fixed times, 10am, noon and 6pm Beijing time. We reviewed the last 27 posts: an average of 1.65% engagement, which is huge. But careful, 98% of those interactions come from three Wang Yibo videos. The one from August 24 alone drives 93,000 interactions. Without him, the account drops to 0.03%. For the course, it's the perfect example: the official account is owned media, and what fans do with it is earned media.</div>
+  <div class="notes">Weibo is a Chinese microblogging platform owned by the Sina group: basically, the equivalent of X, with close to 580 million users a month. Since Western platforms are blocked in China, it's a must. The star here is Wang Yibo, a Chinese actor, singer and dancer, Lacoste's global ambassador since 2024. He's not a sub-brand: he's a celebrity followed by more than 40 million people, about 75 times more than Lacoste. This is the PESO model from class: the brand's account is owned media; Wang Yibo's contract is paid; and when his fans like and reshare, it becomes shared and earned media. The downside: without his videos, the account barely gets any reaction at all.</div>
 </section>
 
 <!-- ============ S9 · KAKAOTALK (réf. « Core Principles », cartes à coin encoché) ============ -->
@@ -746,7 +751,7 @@ body.reglage .panneau{display:block}
   </div>
   <p class="pied" data-tw="source">Sources: KakaoTalk, LACOSTE channel; The Global Statistics, 2025 (accessed 14/09/2026). Channel found with <img class="ia" src="../img/logo-claude.svg" alt="">Claude.</p>
   <div class="num">7 / 13</div>
-  <div class="notes">In Korea, everyone's on KakaoTalk: 97% of people, 48.9 million users a month. Lacoste has an official channel there with 400,000 friends. For us, it's not a classic social network: it's owned media, a CRM channel, exactly the job I'm aiming for. And unlike Pinterest, the counters here are public. We reviewed the last 20 posts: roughly one a week, mostly around lunchtime and late afternoon. 1,609 interactions in total, including 967 shares, because on a messaging app people share in their conversations more than they like. The best post is Ahn Yujin in spring, with 247 interactions. But overall that's 0.02% engagement, and above all, nothing posted in 54 days. And no coupons: Lacoste uses it as a showcase, not as a real loyalty channel. For an e-CRM officer, that's a real opportunity.</div>
+  <div class="notes">KakaoTalk is the messaging app from the Korean company Kakao: it's a bit like our WhatsApp, and almost every Korean uses it. Brands have a Kakao Channel there, the equivalent of WhatsApp Business, with payment and a shop built in. In the PESO model, it's owned media: the brand talks directly to people who agreed to receive it, with no algorithm in between. So it's a real CRM tool, but Lacoste uses it as a showcase: no follow-up, no personalized offer, and nothing posted for almost two months. For an e-CRM manager, that's exactly where there's value to create.</div>
 </section>
 
 <!-- ============ S10 · THREADS (réf. « Results & Benefits », deck économie circulaire) ============ -->
@@ -771,9 +776,9 @@ body.reglage .panneau{display:block}
         <div><b>54</b><span class="lab">reposts</span><div class="jauge"><i style="width:2%"></i></div><small>2% of interactions</small></div><span class="fl">↗</span></div>
     </div>
   </div>
-  <p class="pied" data-tw="source">Sources: Threads @lacoste, 13 posts (accessed 14/09/2026); Ecommerce Nation, 2025 guide, p. 16. Account found with <img class="ia" src="../img/logo-claude.svg" alt="">Claude.</p>
+  <p class="pied" data-tw="source">Sources: Threads @lacoste (accessed 14/09/2026); Ecommerce Nation, 2025 guide, p. 16. Account found with <img class="ia" src="../img/logo-claude.svg" alt="">Claude.</p>
   <div class="num">8 / 13</div>
-  <div class="notes">With Threads, we first thought Lacoste was barely there. Checking properly, we found 1.4 million followers: an audit lesson, you verify instead of assuming. The Ecommerce Nation guide presents Threads as complementary to Instagram, and that's exactly what Lacoste does: the same content, the US Open, Djokovic, the collabs. We reviewed the 13 recent posts: roughly one a week. Almost all likes, 96% of interactions, and very few replies. Overall, 0.012% engagement. The account has the audience, but it doesn't create conversation, even though that's what Threads is built for.</div>
+  <div class="notes">Threads is the platform launched by Meta, Instagram's parent company, to compete with X. The Ecommerce Nation guide, in the course appendix, actually talks about it being complementary to Instagram: same followers, often the same content. At first, we thought Lacoste wasn't there at all; checking properly, we found a well-followed account. The gauges show the breakdown of reactions: almost only likes, barely any replies or reposts. But Threads is built for conversation. Lacoste relays its content there, but doesn't actually talk with its community, and that shows in its engagement rate.</div>
 </section>
 
 <!-- ============ S11 · PINTEREST (réf. croquis de Sofian : titre + 2 CTA en bas à gauche, photos inclinées en haut à droite, galets ; typographie de Slush) ============ -->
@@ -793,7 +798,7 @@ body.reglage .panneau{display:block}
   </div>
   <p class="pied" data-tw="source">Sources: Pinterest @lacoste (accessed 14/09/2026); Ecommerce Nation, 2025 guide, p. 7. Account found with <img class="ia" src="../img/logo-claude.svg" alt="">Claude.</p>
   <div class="num">9 / 13</div>
-  <div class="notes">Pinterest is the platform Mr Perez recommended to us: it's a visual search engine, and ads there are the cheapest. In France, 18.9 million people, 70% of them women, according to the Ecommerce Nation 2025 guide. Lacoste has 99,300 followers there, 8 boards and 872 pins, and 80% link straight to lacoste.com: the e-commerce intent is clear. But two limits. One: Pinterest doesn't show any public engagement figures, so we can't calculate a rate, and that's an audit finding in itself. Two: 65% of pins are in Menswear, while the audience is mostly female. And with 90 times fewer followers than on Instagram, it's clearly the underused showcase.</div>
+  <div class="notes">On Pinterest, you're not there to follow your friends, you're there to find ideas, a bit like Google but in images: that's why the Ecommerce Nation guide calls it a visual search engine, and you told us in class, it's also where ads cost the least. Lacoste uses it as a showcase: most pins link back to its website, so we're already in a sales logic. Two limits: no public engagement numbers, so no rate is possible, and a lot of men's content even though the audience in France is mostly female.</div>
 </section>
 
 <!-- ============ S7 · AMBASSADEURS & EMV (réf. « Revenue Breakdown », annual report vert et noir) ============ -->
@@ -837,7 +842,7 @@ body.reglage .panneau{display:block}
   </div>
   <p class="pied" data-tw="source">Sources: Kolsquare, Influence4You (accessed 11/09/2026); Instagram @lacoste, post from 29/06/2026. Posts found with <img class="ia" src="../img/logo-claude.svg" alt="">Claude.</p>
   <div class="num">10 / 13</div>
-  <div class="notes">Now, what an ambassador is worth. Pierre Niney's contract is paid media. But his fans' reactions are earned media, and that's exactly what EMV measures. On this Instagram post from June 29, with Pierre Gasly: 81,000 likes, 430 comments, 16,380 shares. Influence4You values it at $82,113. Basically, that's what Lacoste would have had to pay in ads to get the same visibility, it's not revenue. The same video on YouTube only gets 4,300 views. On the right, the engagement rates: Niney at 6.55%, Adèle Exarchopoulos at 5.86%, and the Lacoste account at 0.19%, so up to 30 times less. The downside is that this engagement belongs to the star first: if she leaves, it leaves with her.</div>
+  <div class="notes">As you know, EMV, Earned Media Value, lets you put a number on earned visibility: what the brand would have had to pay in advertising to get the same exposure. We calculated it with Influence4You on the Pierre Niney and Pierre Gasly post: a bit more than $82,000, which isn't revenue but a media value. On the right, each ambassador's engagement rate: Niney is above 6.5%, Adèle Exarchopoulos is close to 6%, Djokovic is around 2%, Venus Williams is close to 1%, while the Lacoste account stays under 0.2%. So the ambassadors get more than thirty times more reaction than the brand.</div>
 </section>
 
 <!-- ============ S12 · BILAN SWOT (inspiré, sans copie, du modèle à coins colorés et onglets verticaux) ============ -->
@@ -859,10 +864,10 @@ body.reglage .panneau{display:block}
       <ul><li>Official accounts at 0.01–0.03% without stars</li><li>KakaoTalk silent for 54 days</li><li>Pinterest: Menswear content, female audience</li></ul>
       <svg class="vague" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M100 0 C100 40 72 50 52 68 C32 86 20 100 0 100 L100 100 Z"/></svg><b class="lettre">W</b></div>
       <div class="swc sw-o bas" data-tw="opportunités"><span class="onglet">Opportunities</span>
-      <ul><li>KakaoTalk as a real CRM channel, 400K friends</li><li>Pinterest: 18.9M users in France</li><li>RedNote: no official account</li></ul>
+      <ul><li>Turn KakaoTalk into a loyalty channel: 400K friends</li><li>Pinterest: 18.9M users in France</li><li>RedNote, a Chinese platform: Lacoste isn't there</li></ul>
       <svg class="vague" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M100 0 C100 40 72 50 52 68 C32 86 20 100 0 100 L100 100 Z"/></svg><b class="lettre">O</b></div>
       <div class="swc sw-t bas" data-tw="menaces"><span class="onglet">Threats</span>
-      <ul><li>Engagement leaves with the star</li><li>Fred Perry: 0.23%, 10x fewer followers</li><li>Competitors already on Threads and Pinterest</li></ul>
+      <ul><li>Engagement leaves with the star</li><li>Fred Perry engages almost as much with 10x fewer followers</li><li>Competitors already on Threads and Pinterest</li></ul>
       <svg class="vague" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M100 0 C100 40 72 50 52 68 C32 86 20 100 0 100 L100 100 Z"/></svg><b class="lettre">T</b></div>
     </div>
     <div class="bl-concu" data-tw="concurrents">
@@ -877,7 +882,7 @@ body.reglage .panneau{display:block}
   <p class="swot-foot" data-tw="formule">Rate = (likes + comments + shares) ÷ followers, average per post · Overall = Σ average interactions ÷ Σ followers (Weibo, KakaoTalk, Threads)</p>
   <p class="pied" data-tw="source">Sources: 60 posts reviewed across Weibo, KakaoTalk and Threads; Kolsquare (accessed 14/09/2026). Calculations verified with <img class="ia" src="../img/logo-claude.svg" alt="">Claude.</p>
   <div class="num">11 / 13</div>
-  <div class="notes">For the wrap-up, we applied the formula from class: likes plus comments plus shares, divided by followers, post by post. Weibo is at 1.65%, but that's Wang Yibo: without him, 0.03%. KakaoTalk 0.02%, Threads 0.012%, and Pinterest gives no public figures at all. Overall, across the three measurable platforms, that's 0.39%, and 0.02% without Wang Yibo. And yet, on Instagram, Lacoste is ahead of its competitors: 0.31%, versus 0.10% for Tommy Hilfiger and 0.09% for Ralph Lauren. So, our SWOT. The strength is the ambassadors and the country-by-country adaptation. The weakness: official accounts that talk without sparking reactions, and channels left behind. The opportunities: KakaoTalk as a real CRM channel, Pinterest and RedNote. And the threat is depending on stars whose engagement doesn't belong to us.</div>
+  <div class="notes">For the wrap-up, we applied the formula from class, post by post: likes, comments and shares divided by followers. For the overall figure, we add up the average interactions of the three measurable platforms and divide by the sum of their followers. Weibo looks very high, but that's Wang Yibo: without him, it drops back to the level of KakaoTalk and Threads. On the right, our benchmark, done with the same tool: on Instagram, Lacoste is ahead of its four competitors. Now, the SWOT. Strengths: the ambassadors, and a platform suited to each country. Weaknesses: official accounts that get little reaction, KakaoTalk left aside, and a Pinterest that targets the wrong audience. Opportunities: turning KakaoTalk into a loyalty tool, by sending personalized offers to the 400,000 people already following; putting more effort into Pinterest; and RedNote, nicknamed the Chinese Instagram, more than 400 million users who go there for reviews before buying, and where Lacoste isn't present yet. Threats: engagement that depends on stars; Fred Perry, the English tennis brand founded in 1952, which gets almost as much reaction with ten times fewer followers, so a more loyal community; and competitors already established on Threads and Pinterest.</div>
 </section>
 
 <!-- ============ S13 · CONCLUSION (même slide que l'oral de X : le mot seul, au centre) ============ -->
@@ -886,7 +891,7 @@ body.reglage .panneau{display:block}
   <div class="voile" data-tw="voile" data-op></div>
   <h2 class="concl" data-tw="titre">Conclusion</h2>
   <div class="num">12 / 13</div>
-  <div class="notes">Nothing to read, we say this facing the class. Our position: Lacoste rents engagement, it doesn't own it. On its own accounts, the brand talks more than it converses, and it's on its ambassadors' accounts that people actually react. Looking ahead: the open question is whether all this attention converts into sales. That's what we'd measure next with conversion KPIs. Thank you.</div>
+  <div class="notes">Our position is that Lacoste rents its engagement rather than owning it. On its own accounts, it broadcasts, but it's the ambassadors who get the reactions. If a star leaves tomorrow, a big chunk of engagement leaves with them. And that opens up the question we'd like to dig into for the rest of the module: does all this attention actually turn into sales? That's something we could measure with conversion KPIs. Thank you, we're ready for your questions.</div>
 </section>
 
 <!-- ============ S14 · ANNEXE : sources en APA 7 et qui a fait quoi (même principe que l'annexe du deck X) ============ -->
@@ -922,17 +927,15 @@ body.reglage .panneau{display:block}
     <div class="anx-ia" data-tw="qui a fait quoi">
       <h3>AI, with hindsight</h3>
       <div><div class="qui"><img src="../img/logo-claude.svg" alt="">What Claude did</div>
-        <ul><li>Found the official accounts and their URLs on each platform</li><li>Found the ambassadors' posts</li><li>Designed and built the slides</li></ul></div>
+        <ul><li>Found the official accounts and their URLs on each platform</li><li>Found the ambassadors' posts</li><li>Designed the slides</li></ul></div>
       <div><div class="qui">Its limits</div>
         <ul><li>No access to hidden data: engagement rates, audience, EMV</li><li>Only Kolsquare and Influence4You could measure that</li></ul></div>
-      <div><div class="qui">Its mistakes, corrected</div>
-        <ul><li>Said Lacoste was absent from Threads: 1.4M followers</li><li>Suggested RedNote, which has no official account</li></ul></div>
       <div class="outils-anx ligne"><img src="../img/logo-kolsquare.png" alt="Kolsquare"><img src="../img/logo-i4y.jpg" alt="Influence4You"></div>
     </div>
   </div>
   <p class="pied" data-tw="mention">Romane Da-Silva &amp; Sofian Chtioui · BUT3 MDEE · IUT de Roubaix · September 18, 2026</p>
   <div class="num">13 / 13</div>
-  <div class="notes">Only show this if someone asks about our sources or about AI. Basically, Claude saved us time finding the right accounts and building the slides. But for real engagement rates, it couldn't help: we needed Kolsquare and Influence4You. And we corrected it twice: it thought Lacoste was absent from Threads, and it suggested RedNote even though Lacoste has no official account there. That's actually what the Kolsquare white paper in the course appendix says: an AI never answers “I don't know”, it always gives an answer, even a wrong one. Hence the importance of cross-checking everything.</div>
+  <div class="notes">If you want to see our sources or how we used AI, it's all here. We used Claude to find the right accounts on each platform and to design the slides. But it couldn't measure what's hidden: engagement rates, audience, EMV. For that, we needed specialized tools like Kolsquare and Influence4You. And we learned to cross-check everything: the Kolsquare white paper, in the course appendix, puts it well, an AI never says “I don't know”, it always gives an answer, even a wrong one. At the start, for example, it told us Lacoste was almost absent from Threads, which was false.</div>
 </section>
 
 <script>
@@ -1029,10 +1032,10 @@ const REGLAGES={
  "s3|carte 10":{"z":1,"ox":50,"oy":20},
  "s3|carte 7":{"ox":50,"oy":30,"z":0.703},
  /* réglages de Sofian du 14/09 : carte Fondation Lacoste */
- "s3|carte 11":{"z":1,"oy":0,"ox":50,"w":22.09},
+ "s3|carte 11":{"z":2.281,"oy":0,"ox":50,"w":22.09},
  "s3|carte 5":{"z":0.962},
  /* titre de couverture : hauteur réglée par Sofian, recentré horizontalement (dx 2,18 → 0) */
- "s1|titre":{"dx":0,"dy":-7.59},
+ "s1|titre":{"dx":0,"dy":-4.96},
  "s3|carte 9":{"dx":0,"dy":0,"z":1}
  /* s7|mail Influence4You non repris : réglé sur l'ancienne carte inclinée, il envoyait le nouveau widget hors de la slide */
 };
