@@ -545,6 +545,26 @@ body.reglage .panneau{display:block}
   .etp i{animation:none;background:var(--vert);border-color:var(--vert)}
   .mail-emv{transform:rotate(-3deg)}
 }
+
+/* ---------- S5 · INSTAGRAM & YOUTUBE (ajoutée le 18/09 à la demande de M. Perez, en 6e position) ---------- */
+#s5{display:flex;flex-direction:column}
+#s5 h2{margin:0 0 1.4vh}
+#s5 h2 .bleu{color:var(--bleu)}
+.iy{flex:1;min-height:0;min-width:0;display:grid;grid-template-columns:minmax(0,1fr) 22vw;gap:2.2vw;align-items:stretch}
+.iy-cartes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3vw;min-height:0;min-width:0}
+.iy-carte{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--filet);background:#111;min-height:0}
+.iy-carte img.cap{width:100%;height:100%;object-fit:cover;object-position:var(--ox,50%) var(--oy,0%);display:block}
+.iy-carte .chip{position:absolute;top:1.3vh;left:1.3vh;background:rgba(10,10,10,.85);color:#fff;border-color:transparent;font-weight:600}
+.iy-carte .loupe{right:1vw;bottom:1.6vh;width:18vh;height:18vh}
+.iy-carte .loupe img{width:235%}
+.iy-side{display:flex;flex-direction:column;gap:.8vh;justify-content:center;min-height:0;min-width:0}
+.iy-side h3{margin:.4vh 0 .2vh;font-size:var(--fs-sm);font-weight:600;color:var(--sourdine);display:flex;align-items:center;gap:.5em;text-transform:uppercase;letter-spacing:.06em}
+.iy-side h3 img{height:1.6em;width:auto;border-radius:4px}
+.iy-kpi{border-radius:16px;padding:.7em 1em;border:1px solid var(--filet);background:var(--carte);display:flex;align-items:baseline;justify-content:space-between;gap:.6em}
+.iy-kpi b{font-size:var(--fs-chiffre);font-weight:600;letter-spacing:-.03em;line-height:1;white-space:nowrap}
+.iy-kpi span{font-size:var(--fs-sm);font-weight:600;color:var(--sourdine);text-align:right;line-height:1.15}
+.iy-kpi.k-encre{background:var(--encre);border-color:var(--encre);color:#fff}
+.iy-kpi.k-encre span{color:rgba(255,255,255,.78)}
 </style>
 </head>
 <body>
@@ -552,7 +572,7 @@ body.reglage .panneau{display:block}
 <nav class="rail" aria-label="Sommaire">
   <a href="#s1"><img class="mark" src="../assets/croco.png" alt="Lacoste, aller à la première diapo"></a>
   <div class="liens">
-  <a href="#s1" class="on">1</a><a href="#s2">2</a><a href="#s3">3</a><a href="#s4">4</a><a href="#s6">5</a><a href="#s8">6</a><a href="#s9">7</a><a href="#s10">8</a><a href="#s11">9</a><a href="#s7">10</a><a href="#s12">11</a><a href="#s13">12</a><a href="#s14">13</a>
+  <a href="#s1" class="on">1</a><a href="#s2">2</a><a href="#s3">3</a><a href="#s4">4</a><a href="#s6">5</a><a href="#s5">6</a><a href="#s8">7</a><a href="#s9">8</a><a href="#s10">9</a><a href="#s11">10</a><a href="#s7">11</a><a href="#s12">12</a><a href="#s13">13</a><a href="#s14">14</a>
   </div>
   <div class="bar"><i></i></div>
 </nav>
@@ -568,7 +588,7 @@ body.reglage .panneau{display:block}
   </div>
   <p class="mention tw" data-tw="mention" style="--x:50%;--y:93.4%;--l:86%">R5.MDEE.13 · Stratégie social media &amp; e-CRM · M. Igor Perez</p>
   <p class="meta tw" data-tw="auteurs" style="--x:50%;--y:96.2%;--l:86%">Romane Da‑Silva &amp; Sofian Chtioui · BUT3 MDEE · IUT de Roubaix · 18 septembre 2026</p>
-  <div class="num">1 / 13</div>
+  <div class="num">1 / 14</div>
   <div class="notes">Bonjour tout le monde, j'espère que vous allez bien.
 Aujourd'hui, nous allons vous présenter l'audit de Lacoste et sa stratégie sur les réseaux sociaux.</div>
 </section>
@@ -580,13 +600,13 @@ Aujourd'hui, nous allons vous présenter l'audit de Lacoste et sa stratégie sur
     <div class="piste-in" data-tw="parcours">
       <div class="ligne"></div><div class="ligne-v"></div>
       <a class="etp" href="#s3" data-tw="étape 1"><span class="n">01<span class="p">Slides 3 à 5</span></span><i></i><b>Qui sommes-nous</b><span class="d">Lacoste, ses dates clés, nos deux métiers</span></a>
-      <a class="etp" href="#s8" data-tw="étape 2"><span class="n">02<span class="p">Slides 6 à 9</span></span><i></i><b>L'audit</b><span class="d">Quatre réseaux et leurs KPI</span>
+      <a class="etp" href="#s8" data-tw="étape 2"><span class="n">02<span class="p">Slides 6 à 10</span></span><i></i><b>L'audit</b><span class="d">Six réseaux et leurs KPI</span>
         <span class="mini"><img src="../assets/rs-weibo.png" alt="Weibo"><img src="../assets/rs-kakao.png" alt="KakaoTalk"><img src="../assets/rs-threads.png" alt="Threads"><img src="../assets/rs-pinterest.png" alt="Pinterest"></span></a>
-      <a class="etp" href="#s7" data-tw="étape 3"><span class="n">03<span class="p">Slide 10</span></span><i></i><b>Ambassadeurs</b><span class="d">L'EMV et ce que vaut leur visibilité</span></a>
-      <a class="etp" href="#s12" data-tw="étape 4"><span class="n">04<span class="p">Slides 11 à 13</span></span><i></i><b>Bilan</b><span class="d">Taux d'engagement, SWOT, conclusion et sources</span></a>
+      <a class="etp" href="#s7" data-tw="étape 3"><span class="n">03<span class="p">Slide 11</span></span><i></i><b>Ambassadeurs</b><span class="d">L'EMV et ce que vaut leur visibilité</span></a>
+      <a class="etp" href="#s12" data-tw="étape 4"><span class="n">04<span class="p">Slides 12 à 14</span></span><i></i><b>Bilan</b><span class="d">Taux d'engagement, SWOT, conclusion et sources</span></a>
     </div>
   </div>
-  <div class="num">2 / 13</div>
+  <div class="num">2 / 14</div>
   <div class="notes">Au sommaire, quatre parties :
 - d'abord qui on est : Lacoste, ses dates clés et nos deux métiers intégrés au sein de la marque ;
 - ensuite l'audit, sur quatre réseaux sociaux qu'on a choisis : Weibo, KakaoTalk, Threads et Pinterest ;
@@ -637,7 +657,7 @@ Aujourd'hui, nous allons vous présenter l'audit de Lacoste et sa stratégie sur
     </div>
   </div>
   <p class="pied" data-tw="source">Sources : Lacoste, site officiel ; Autorité de la concurrence ; Wikipédia, (consultés le 11/09/2026). Chiffres recoupés avec <img class="ia" src="../assets/logo-claude.svg" alt="">Claude.</p>
-  <div class="num">3 / 13</div>
+  <div class="num">3 / 14</div>
   <div class="notes">Petite question pour commencer : est-ce que quelqu'un sait pourquoi Lacoste a un crocodile ? … En 1923, à Boston, René Lacoste fait un pari : on lui promet une valise en peau de crocodile s'il gagne son match. La presse américaine lui donne ce surnom, un ami dessine l'animal, et depuis 1933 il est brodé sur chaque polo. Aujourd'hui, Lacoste se place sur le fashion-sport premium, entre le sport et la mode. Sur les cartes, EMEA veut dire Europe, Moyen-Orient et Afrique : la zone qui regroupe plus de la moitié des salariés. C'est une marque française, née en France et installée à Paris, mais depuis 2012 elle appartient au groupe familial suisse Maus Frères. En France, c'est environ 330 millions d'euros de chiffre d'affaires, plus de 850 salariés et une usine à Troyes, pour un groupe autour de 3 milliards. Face à Ralph Lauren, Tommy Hilfiger ou Hugo Boss, Lacoste est plus petite, mais plus rentable que Ralph Lauren et Hugo Boss.</div>
 </section>
 
@@ -664,7 +684,7 @@ Aujourd'hui, nous allons vous présenter l'audit de Lacoste et sa stratégie sur
       <div class="jt"><b>2026</b><span>Nouvelle identité, « Life is a Beautiful Sport »</span></div></div>
   </div>
   <p class="pied" data-tw="source">Source : Lacoste, histoire de la marque, (consulté le 11/09/2026). Dates recoupées avec <img class="ia" src="../assets/logo-claude.svg" alt="">Claude.</p>
-  <div class="num">4 / 13</div>
+  <div class="num">4 / 14</div>
   <div class="notes">Pour comprendre la manière dont Lacoste communique aujourd'hui, il faut revenir sur quelques moments clés. Au départ, c'est un sportif qui invente un vêtement pour mieux jouer : le polo naît sur un court de tennis, et la marque ne quittera plus jamais le tennis, avec Roland-Garros comme vitrine. En 2012, la famille passe la main à un groupe suisse. En 2018, Lacoste ose toucher à son propre logo pour défendre les espèces menacées : c'est un très bon exemple de brand content, la marque raconte une histoire au lieu de montrer un produit. Et cette année, elle reprend une signature historique pour rappeler d'où elle vient.</div>
 </section>
 
@@ -695,8 +715,35 @@ Aujourd'hui, nous allons vous présenter l'audit de Lacoste et sa stratégie sur
     </div>
   </div>
   <p class="pied" data-tw="source">Sources : APEC ; Glassdoor ; Welcome to the Jungle ; offres Lacoste, Cdiscount et Kering, (consultés le 14/09/2026). Recherche avec <img class="ia" src="../assets/logo-claude.svg" alt="">Claude.</p>
-  <div class="num">5 / 13</div>
+  <div class="num">5 / 14</div>
   <div class="notes">On vous présente nos deux métiers. Assistante directrice artistique, c'est garder la même image de Lacoste d'un réseau à l'autre : moodboards, shootings, identité visuelle ; on y arrive par une école de design, avec un portfolio de ses créations. Chargé e-CRM, c'est gérer la relation client : connaître ses clients, les classer par profil, et leur envoyer le bon message au bon moment pour qu'ils reviennent. On peut le faire en CDI dans une marque, avec un salaire et une évolution vers responsable CRM, ou en freelance : on est alors appelé en mission pour mettre en place l'outil et les parcours clients, puis on passe à une autre entreprise.</div>
+</section>
+
+
+<!-- ============ S5 · INSTAGRAM & YOUTUBE (ajout du 18/09, demande de M. Perez) ============ -->
+<section id="s5">
+  <h2 data-tw="titre"><span class="bleu">Instagram</span> &amp; YouTube</h2>
+  <div class="iy">
+    <div class="iy-cartes" data-tw="cartes">
+      <div class="iy-carte" data-tw="carte profil Instagram"><img class="cap" src="../assets/ig-profil.jpg" alt="Profil Instagram @lacoste : 8,8 M followers, 4 109 publications" style="object-position:50% 0%"><span class="chip">8,8 M followers</span></div>
+      <div class="iy-carte" data-tw="carte post Instagram"><img class="cap" src="../assets/ig-post-adele.jpg" alt="Post Instagram du 16/09 : Adèle Exarchopoulos, 5 202 likes" style="object-position:50% 38%"><span class="chip">Post du 16/09</span>
+        <div class="loupe" data-tw="loupe" style="--ox:24%;--oy:79.5%"><img src="../assets/ig-post-adele.jpg" alt="Détail : 5 202 likes, 57 commentaires, 59 republications, 192 partages" style="object-position:30% 79%"></div></div>
+      <div class="iy-carte" data-tw="carte chaîne YouTube"><img class="cap" src="../assets/yt-chaine.jpg" alt="Chaîne YouTube Lacoste : 110 K abonnés, 371 vidéos" style="object-position:50% 12%"><span class="chip">110 K abonnés</span></div>
+    </div>
+    <div class="iy-side" data-tw="moyennes">
+      <h3>Instagram · 10 derniers posts</h3>
+      <div class="iy-kpi k-encre"><b>13 107</b><span>likes en moyenne</span></div>
+      <div class="iy-kpi"><b>89</b><span>commentaires en moyenne</span></div>
+      <div class="iy-kpi"><b>192</b><span>partages, post du 16/09 (moyenne non publique)</span></div>
+      <h3><img src="../assets/rs-youtube.png" alt="">YouTube · 10 dernières vidéos</h3>
+      <div class="iy-kpi k-encre"><b>224 043</b><span>vues en moyenne</span></div>
+      <div class="iy-kpi"><b>184</b><span>likes en moyenne</span></div>
+      <div class="iy-kpi"><b>21</b><span>commentaires en moyenne, activés sur 5 vidéos sur 10</span></div>
+    </div>
+  </div>
+  <p class="pied" data-tw="source">Sources : Instagram @lacoste ; YouTube @Lacoste, captures et 10 derniers posts (consultés le 18/09/2026). Moyennes calculées avec <img class="ia" src="../assets/logo-claude.svg" alt="">Claude.</p>
+  <div class="num">6 / 14</div>
+  <div class="notes">À la demande de M. Perez, on a ajouté les deux réseaux principaux de Lacoste : Instagram et YouTube. Instagram, c'est 8,8 millions de followers et plus de 4 000 publications ; YouTube, 110 000 abonnés et 371 vidéos. Sur les dix derniers posts Instagram, la marque fait en moyenne 13 107 likes, 89 commentaires et 192 partages ; sur les dix dernières vidéos YouTube, 224 043 vues, 184 likes et 21 commentaires. Le post d'Adèle Exarchopoulos, publié il y a deux jours, donne l'ordre de grandeur : 5 202 likes, 57 commentaires, 192 partages. YouTube n'affiche pas les partages, on donne donc les vues à la place.</div>
 </section>
 
 <!-- ============ S8 · WEIBO (réf. hero « Unique industrial equipment », Blend Bend : titre dans une encoche, image découpée, carte dans le coin) ============ -->
@@ -717,7 +764,7 @@ Aujourd'hui, nous allons vous présenter l'audit de Lacoste et sa stratégie sur
     <div class="wb-coin" data-tw="carte cumul"><div class="wb-carte"><span class="anneau"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l3 3-3 3"/><path d="M4 12v-2a4 4 0 0 1 4-4h12"/><path d="M7 21l-3-3 3-3"/><path d="M20 12v2a4 4 0 0 1-4 4H4"/></svg></span><div><b>1,65 %</b><span>d'engagement moyen par post, 0,03 % sans Wang Yibo</span></div></div></div>
   </div>
   <p class="pied" data-tw="source">Source : Weibo, compte LACOSTE, 27 posts relevés, (consulté le 14/09/2026). Compte trouvé avec <img class="ia" src="../assets/logo-claude.svg" alt="">Claude.</p>
-  <div class="num">6 / 13</div>
+  <div class="num">7 / 14</div>
   <div class="notes">Weibo, c'est un réseau chinois de microblogging qui appartient au groupe Sina : pour simplifier, l'équivalent de X, avec près de 580 millions d'utilisateurs par mois. Comme les réseaux occidentaux sont bloqués en Chine, c'est un passage obligé. La star, c'est Wang Yibo, acteur, chanteur et danseur chinois, ambassadeur mondial de Lacoste depuis 2024. Ce n'est pas une sous-marque : c'est une célébrité suivie par plus de 40 millions de personnes, environ 75 fois plus que Lacoste. On retrouve ici le modèle PESO du cours : le compte de la marque, c'est de l'owned media ; le contrat de Wang Yibo, du paid ; et quand ses fans aiment et repartagent, ça devient du shared et de l'earned media. Le revers : sans ses vidéos, le compte ne fait presque plus réagir.</div>
 </section>
 
@@ -750,7 +797,7 @@ Aujourd'hui, nous allons vous présenter l'audit de Lacoste et sa stratégie sur
     <img class="kk-shot" src="../assets/kakaotalk-cadre.png" alt="Canal officiel LACOSTE sur KakaoTalk" data-tw="capture KakaoTalk">
   </div>
   <p class="pied" data-tw="source">Sources : KakaoTalk, canal LACOSTE ; The Global Statistics, 2025, (consultés le 14/09/2026). Canal trouvé avec <img class="ia" src="../assets/logo-claude.svg" alt="">Claude.</p>
-  <div class="num">7 / 13</div>
+  <div class="num">8 / 14</div>
   <div class="notes">KakaoTalk, c'est la messagerie de l'entreprise coréenne Kakao : c'est un peu notre WhatsApp, et presque tous les Coréens l'utilisent. Les marques y ont un Kakao Channel, l'équivalent de WhatsApp Business, avec paiement et boutique intégrés. Dans le modèle PESO, c'est de l'owned media : la marque parle directement à des gens qui ont accepté de la recevoir, sans algorithme entre les deux. C'est donc un vrai outil de CRM, mais Lacoste s'en sert comme d'une vitrine : pas de relance, pas d'offre personnalisée, et plus rien depuis presque deux mois. Pour un chargé e-CRM, c'est là qu'il y a de la valeur à créer.</div>
 </section>
 
@@ -777,7 +824,7 @@ Aujourd'hui, nous allons vous présenter l'audit de Lacoste et sa stratégie sur
     </div>
   </div>
   <p class="pied" data-tw="source">Sources : Threads @lacoste (consulté le 14/09/2026) ; Ecommerce Nation, guide 2025, p. 16. Compte trouvé avec <img class="ia" src="../assets/logo-claude.svg" alt="">Claude.</p>
-  <div class="num">8 / 13</div>
+  <div class="num">9 / 14</div>
   <div class="notes">Threads, c'est le réseau lancé par Meta, la maison mère d'Instagram, pour concurrencer X. Le guide Ecommerce Nation, en annexe du cours, parle d'ailleurs de complémentarité avec Instagram : mêmes abonnés, souvent mêmes contenus. Au départ, on pensait que Lacoste y était absente ; en vérifiant, on a trouvé un compte bien suivi. Les jauges montrent la répartition des réactions : quasiment que des likes, presque aucune réponse ni republication. Or Threads est fait pour discuter. Lacoste y relaie ses contenus, mais ne converse pas avec sa communauté, et ça se voit dans son taux d'engagement.</div>
 </section>
 
@@ -797,7 +844,7 @@ Aujourd'hui, nous allons vous présenter l'audit de Lacoste et sa stratégie sur
     <div class="verdict" data-tw="verdict" style="margin-top:1.6vh"><span class="chip v-plus">+ intention e-commerce claire</span><span class="chip v-moins">− engagement invisible</span><span class="chip v-moins">− 65 % Menswear, audience à 70 % féminine</span></div>
   </div>
   <p class="pied" data-tw="source">Sources : Pinterest @lacoste, (consulté le 14/09/2026) ; Ecommerce Nation, guide 2025, p. 7. Compte trouvé avec <img class="ia" src="../assets/logo-claude.svg" alt="">Claude.</p>
-  <div class="num">9 / 13</div>
+  <div class="num">10 / 14</div>
   <div class="notes">Pinterest, on n'y va pas pour suivre ses amis, on y va chercher des idées, un peu comme sur Google mais en images : c'est pour ça que le guide Ecommerce Nation parle de moteur de recherche visuel, et vous nous l'aviez dit en cours, c'est aussi là que la pub coûte le moins cher. Lacoste l'utilise comme une vitrine : la plupart des épingles renvoient vers son site, donc on est déjà dans une logique de vente. Deux limites : aucun chiffre d'engagement public, donc pas de taux possible, et beaucoup de contenu homme alors qu'en France l'audience est surtout féminine.</div>
 </section>
 
@@ -841,7 +888,7 @@ Aujourd'hui, nous allons vous présenter l'audit de Lacoste et sa stratégie sur
     </div>
   </div>
   <p class="pied" data-tw="source">Sources : Kolsquare, Influence4You, (consultés le 11/09/2026) ; Instagram @lacoste, post du 29/06/2026. Posts retrouvés avec <img class="ia" src="../assets/logo-claude.svg" alt="">Claude.</p>
-  <div class="num">10 / 13</div>
+  <div class="num">11 / 14</div>
   <div class="notes">Comme vous le savez, l'EMV, l'Earned Media Value, permet de chiffrer la visibilité gagnée : ce que la marque aurait dû payer en publicité pour obtenir la même exposition. On l'a calculée avec Influence4You sur le post de Pierre Niney et Pierre Gasly : un peu plus de 82 000 dollars, qui ne sont pas du chiffre d'affaires mais une valeur médiatique. À droite, le taux d'engagement de chaque ambassadeur : Niney dépasse 6,5 %, Adèle Exarchopoulos approche 6 %, Djokovic tourne autour de 2 %, Venus Williams frôle 1 %, quand le compte Lacoste reste sous 0,2 %. Les ambassadeurs font donc réagir plus de trente fois plus que la marque.</div>
 </section>
 
@@ -881,7 +928,7 @@ Aujourd'hui, nous allons vous présenter l'audit de Lacoste et sa stratégie sur
   </div>
   <p class="swot-foot" data-tw="formule">Taux = (likes + commentaires + partages) ÷ abonnés, moyenne par post · Global = Σ interactions moyennes ÷ Σ abonnés (Weibo, KakaoTalk, Threads)</p>
   <p class="pied" data-tw="source">Sources : 60 posts relevés sur Weibo, KakaoTalk et Threads ; Kolsquare, (consultés le 14/09/2026). Calculs vérifiés avec <img class="ia" src="../assets/logo-claude.svg" alt="">Claude.</p>
-  <div class="num">11 / 13</div>
+  <div class="num">12 / 14</div>
   <div class="notes">Pour le bilan, on a appliqué la formule du cours, post par post : likes, commentaires et partages divisés par les abonnés. Pour le global, on additionne les interactions moyennes des trois réseaux mesurables et on divise par la somme de leurs abonnés. Weibo paraît très haut, mais c'est Wang Yibo : sans lui, on retombe au niveau de KakaoTalk et de Threads. À droite, notre benchmark, fait avec le même outil : sur Instagram, Lacoste est devant ses quatre concurrents. Le SWOT, maintenant. Forces : les ambassadeurs, et un réseau adapté à chaque pays. Faiblesses : des comptes officiels qui font peu réagir, KakaoTalk laissé de côté, et un Pinterest qui vise la mauvaise cible. Et une faiblesse plus ancienne, propre à la France : dans les années 90 et 2000, Lacoste est devenue la marque du « style TN », survêtement, sacoche et Nike TN, popularisée par le rap, avec le groupe Arsenik par exemple. Ça a brouillé son image premium. La marque a réagi en montant en gamme : elle a recruté le créateur Christophe Lemaire en 2001, recentré sa communication sur une clientèle plus aisée, puis multiplié les collaborations, comme avec Supreme. Aujourd'hui, elle assume cet héritage streetwear, et le groupe est revenu autour de 3 milliards d'euros de chiffre d'affaires, en hausse. Opportunités : faire de KakaoTalk un outil de fidélisation, en envoyant des offres personnalisées aux 400 000 personnes déjà abonnées ; miser sur Pinterest ; et RedNote, surnommé l'Instagram chinois, plus de 400 millions d'utilisateurs qui y cherchent des avis avant d'acheter, et où Lacoste n'est pas encore. Menaces : un engagement qui dépend de stars ; Fred Perry, marque anglaise de tennis née en 1952, qui fait presque autant réagir avec dix fois moins d'abonnés, donc une communauté plus fidèle ; et des concurrents déjà installés sur Threads et Pinterest.</div>
 </section>
 
@@ -890,7 +937,7 @@ Aujourd'hui, nous allons vous présenter l'audit de Lacoste et sa stratégie sur
   <div class="fond" data-tw="photo de fond"><img src="../assets/conclusion.jpg" alt="Romane Da-Silva, Sofian Chtioui et M. Igor Perez"></div>
   <div class="voile" data-tw="voile" data-op></div>
   <h2 class="concl" data-tw="titre">Conclusion</h2>
-  <div class="num">12 / 13</div>
+  <div class="num">13 / 14</div>
   <div class="notes">Notre position, c'est que Lacoste loue son engagement plutôt qu'elle ne le possède. Sur ses propres comptes, elle diffuse, mais ce sont ses ambassadeurs qui font réagir. Si demain une star s'en va, une grosse partie de l'engagement part avec elle. Et ça ouvre la question qu'on aimerait creuser pour la suite du module : est-ce que toute cette attention se transforme vraiment en ventes ? C'est ce qu'on pourra mesurer avec les KPI de conversion. Merci, on est prêts pour vos questions.</div>
 </section>
 
@@ -934,7 +981,7 @@ Aujourd'hui, nous allons vous présenter l'audit de Lacoste et sa stratégie sur
     </div>
   </div>
   <p class="pied" data-tw="mention">Romane Da-Silva &amp; Sofian Chtioui · BUT3 MDEE · IUT de Roubaix · 18 septembre 2026</p>
-  <div class="num">13 / 13</div>
+  <div class="num">14 / 14</div>
   <div class="notes">Si vous voulez voir nos sources ou comment on a utilisé l'IA, tout est ici. On s'est servis de Claude pour retrouver les bons comptes sur chaque réseau et pour concevoir les slides. Par contre, il ne pouvait pas mesurer ce qui est caché : les taux d'engagement, l'audience, l'EMV. Pour ça, il fallait des outils spécialisés comme Kolsquare et Influence4You. Et on a appris à tout recouper : le livre blanc de Kolsquare, en annexe du cours, le dit très bien, une IA ne répond jamais « je ne sais pas », elle donne toujours une réponse, même fausse. Au début, elle nous disait par exemple que Lacoste était presque absente de Threads, ce qui était faux.</div>
 </section>
 
